@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 May 2019 18:56:02 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 04 May 2019 10:55:10 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Istio - Introduction</title>
+      <link>https://njoysubho.github.io/posts/istio/</link>
+      <pubDate>Sat, 04 May 2019 10:55:10 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/istio/</guid>
+      <description>Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably.</description>
+    </item>
     
     <item>
       <title>Start Journey for a modern application development</title>
