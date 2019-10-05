@@ -5,11 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
     <title>Sabyasachi Bhattacharya </title>
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.55.4" />
+    <meta name="generator" content="Hugo 0.55.5" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -27,16 +24,18 @@
     
 
     
-      <link href="https://njoysubho.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Sabyasachi Bhattacharya" />
-      <link href="https://njoysubho.github.io/index.xml" rel="feed" type="application/rss+xml" title="Sabyasachi Bhattacharya" />
     
-
+      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Sabyasachi Bhattacharya" />
+      <link href="/index.xml" rel="feed" type="application/rss+xml" title="Sabyasachi Bhattacharya" />
+      
+    
+    
     <meta property="og:title" content="Sabyasachi Bhattacharya" />
 <meta property="og:description" content="The last theme you&#39;ll ever need. Maybe." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/" />
 
-<meta property="og:updated_time" content="2019-05-04T10:55:10&#43;02:00"/>
+<meta property="og:updated_time" content="2019-10-05T10:58:51&#43;02:00"/>
 
 <meta itemprop="name" content="Sabyasachi Bhattacharya">
 <meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe.">
@@ -164,14 +163,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/istio/" class="color-inherit dim link">
-            Istio - Introduction
+          <a href="/posts/traceid-micronaut-log/" class="color-inherit dim link">
+            Traceid Logging with Micronaut
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably.
+          Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar . This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs . For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here https://guides.
         </div>
-          <a href="/posts/istio/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/traceid-micronaut-log/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -188,14 +187,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/posts/modern-development/" class="color-inherit dim link">
-            Start Journey for a modern application development
+          <a href="/posts/istio/" class="color-inherit dim link">
+            Istio - Introduction
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          The technology landscape for developers is changing rapidly. From monolith applications to microservices, from an application deployed on-premise datacenter to cloud platform, also applications deployed on virtualized machines to the containerized environment, the shift is huge. As a developer, it is important to keep up to date with this changing landscape both upgrading oneself as well as looking for a new job. As there are a plethora of technologies and there are always much hype and evangelism around a new technology it is always good to start with a much stable language, framework, and tool.
+          Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably.
         </div>
-          <a href="/posts/modern-development/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="/posts/istio/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -206,6 +205,23 @@
         
       </section>
 
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="/posts/modern-development/" class="link black dim">
+              Start Journey for a modern application development
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
       
 
       </div>

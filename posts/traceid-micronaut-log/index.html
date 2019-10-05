@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Sabyasachi Bhattacharya  | Istio - Introduction</title>
+    <title>Sabyasachi Bhattacharya  | Traceid Logging with Micronaut</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.55.5" />
     
@@ -25,27 +25,27 @@
 
     
     
-    <meta property="og:title" content="Istio - Introduction" />
-<meta property="og:description" content="Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably." />
+    <meta property="og:title" content="Traceid Logging with Micronaut" />
+<meta property="og:description" content="Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar . This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs . For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here https://guides." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://njoysubho.github.io/posts/istio/" />
-<meta property="article:published_time" content="2019-05-04T10:55:10&#43;02:00"/>
-<meta property="article:modified_time" content="2019-05-04T10:55:10&#43;02:00"/>
+<meta property="og:url" content="https://njoysubho.github.io/posts/traceid-micronaut-log/" />
+<meta property="article:published_time" content="2019-10-05T10:58:51&#43;02:00"/>
+<meta property="article:modified_time" content="2019-10-05T10:58:51&#43;02:00"/>
 
-<meta itemprop="name" content="Istio - Introduction">
-<meta itemprop="description" content="Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably.">
+<meta itemprop="name" content="Traceid Logging with Micronaut">
+<meta itemprop="description" content="Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar . This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs . For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here https://guides.">
 
 
-<meta itemprop="datePublished" content="2019-05-04T10:55:10&#43;02:00" />
-<meta itemprop="dateModified" content="2019-05-04T10:55:10&#43;02:00" />
-<meta itemprop="wordCount" content="671">
+<meta itemprop="datePublished" content="2019-10-05T10:58:51&#43;02:00" />
+<meta itemprop="dateModified" content="2019-10-05T10:58:51&#43;02:00" />
+<meta itemprop="wordCount" content="165">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Istio - Introduction"/>
-<meta name="twitter:description" content="Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably."/>
+<meta name="twitter:title" content="Traceid Logging with Micronaut"/>
+<meta name="twitter:description" content="Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar . This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs . For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here https://guides."/>
 
   </head>
 
@@ -135,70 +135,44 @@
           
         POSTS
       </p>
-      <h1 class="f1 athelas mb1">Istio - Introduction</h1>
+      <h1 class="f1 athelas mb1">Traceid Logging with Micronaut</h1>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2019-05-04T10:55:10&#43;02:00">May 4, 2019</time>
+      <time class="f6 mv4 dib tracked" datetime="2019-10-05T10:58:51&#43;02:00">October 5, 2019</time>
       
       
     </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Adoption of microservices architecture is on rising. Teams reap benefits of microservices which enables them to deliver faster, chose a language stack for their choice, quick feedback cycle, etc but, this freedom and pace comes at the cost of complexity to manage a new distributed system which must work in collaboration with each other to deliver the business functionalities. Reliability, fault tolerance, Tracing , Observability are some must-have aspect in a microservice architecture, add to it the functionality of canary deployment, traffic shifting and suddenly there is a whole layer of support system that is required for a service to deliver reliably.
-Service Mesh Technologies is giving options to tackle this scenario. Let&rsquo;s see what is a Service Mesh .</p>
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar .
+This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs .
+For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here <a href="https://guides.micronaut.io/micronaut-microservices-distributed-tracing-zipkin/guide/index.html">https://guides.micronaut.io/micronaut-microservices-distributed-tracing-zipkin/guide/index.html</a> . However to log the same traceId we need to have a Tracing Bean like following</p>
 
-<p>A service mesh is a network of microservices and interaction among them. As the network of microservices increases, managing the mesh becomes harder for teams. A service mesh often requires load balancing,metric collection, traffic management, canary rollout,security and many more operations.
-Service Mesh technologies manage various aspects of this mesh.Istio is one of Service Mesh technology.</p>
+<pre><code>@Bean
+    public Tracing tracing() {
+        val tracing = Tracing.newBuilder()
+                .localServiceName(&quot;hello&quot;)
+                .spanReporter(Reporter.NOOP)
+                .currentTraceContext(MDCCurrentTraceContext.create());
+        return tracing.build();
+    }
 
-<p>But before going into the overview of Istio let&rsquo;s think how we used to manage this now without service mesh. For the functionalities that I mentioned above, there are very good libraries available for example in JVM framework we have Netflix hystrix for fault tolerance and circuit breaking, Spring cloud sleuth for distributed tracing, we can use Zipkin and Grafana for visualizing metrics.All these libraries are good and they have an active development going on(Netflix has declared hystrix in maintenance only mode). But this way we are mixing infrastructure logic with our application logic. Moreover, if we want to use a different language we have to use libraries for that language. Service Mesh detaches these responsibilities from the application layer to the infrastructure layer thus these functionalities can be injected in deployment rather than in code.</p>
+This will put the traceId in MDC and this can be used in logback.xml as follows 
+</code></pre>
 
-<p>Let&rsquo;s see an overview of Istio Service Mesh</p>
+<pre><code> &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;withJansi&gt;true&lt;/withJansi&gt;
+        &lt;!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;
+        &lt;encoder&gt;
+            &lt;pattern&gt;[%X{traceId}]- %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+&lt;/appender&gt;
+</code></pre>
 
-<p>Istio is a service mesh that offers</p>
+<p>MDCCurrentContext is deprecated , instead of that</p>
 
-<ul>
-<li>Load balancing</li>
-<li>Traffic Management</li>
-<li>Canary based deployments</li>
-<li>Fault tolerance</li>
-<li>Automatic metric log and traces</li>
-<li>Security in service to service interaction</li>
-</ul>
-
-<p>Istio architecture</p>
-
-<p><img src="https://istio.io/docs/concepts/what-is-istio/arch.svg" alt="Example image" /></p>
-
-<p>Istio has two part</p>
-
-<ul>
-<li>Data Plane - Envoy proxy</li>
-<li>Control Plane - It consists of components named Pilot, Mixer, Citadel, Galley</li>
-</ul>
-
-<p>Data Plane-</p>
-
-<p>Istio data plane is made up with Envoy proxy. The proxy is deployed alongside the application in  VM, Container, or POD.Envoy intercepts the traffic and provides traffic management, metric log, fault tolerance capabilities to the mesh.</p>
-
-<p>Control Plane-</p>
-
-<ul>
-<li>Pilot - Pilot provides traffic management, service discovery for Envoy proxies and resiliency.</li>
-<li>Mixer - It asserts access control and collect telemetry data across the mesh.</li>
-<li>Citadel- It provides service to service and end-user security.</li>
-<li>Galley - Galley is configuration validation and processing component for Istio.</li>
-</ul>
-
-<p>Deployment for Istio-</p>
-
-<ul>
-<li>Kubernetes - For Kubernetes we can use Helm CRDs to install the Istio components. To inject the sidecar envoy proxies there is one automated way where we label the namespace with &ldquo;istio-injection=enabled&rdquo;. In case of namespace without a label we can use &ldquo;istioctl kube-inject&rdquo; to inject envoy proxy to the namespace manually. See  <a href="https://istio.io/docs/setup/kubernetes/">https://istio.io/docs/setup/kubernetes/</a> for details.</li>
-<li>Container+Consul - For consul environment with containers we can use DockerCompose files to deploy istio components.We also need Registrator to register the deployed applications to the consul. See  <a href="https://istio.io/docs/setup/consul/">https://istio.io/docs/setup/consul/</a> for details.
-Istio documentation says it is agnostic of deployment infrastructure but I couldn&rsquo;t find an example of deploying on bare metal servers.</li>
-</ul>
-
-<p>Istio eases the job of managing service network and provides support for many operations that the microservice applications need for their resiliency and observability.The development of Istio is very active and continously adding new enhancement and performance betterment into the components. A good start is obviously to go through the bookinfo example in the official documentation. There are also a lot of youtube videos available, one of them  <a href="https://www.youtube.com/watch?v=6BYq6hNhceI">https://www.youtube.com/watch?v=6BYq6hNhceI</a> also have a nice voice command integration in the demo which is nice.</p>
-
-<p>Overall Istio service mesh technology is worth watch out for its adoption by organizations in future. Check out  <a href="https://istio.io">https://istio.io</a> for reference .</p>
+<pre><code>ThreadLocalCurrentTraceContext.newBuilder().addScopeDecorator(new Slf4jScopeDecorator()).build()
+</code></pre>
 <ul class="pa0">
   
 </ul>
