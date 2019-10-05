@@ -38,7 +38,7 @@
 
 <meta itemprop="datePublished" content="2019-10-05T10:58:51&#43;02:00" />
 <meta itemprop="dateModified" content="2019-10-05T10:58:51&#43;02:00" />
-<meta itemprop="wordCount" content="165">
+<meta itemprop="wordCount" content="166">
 
 
 
@@ -171,7 +171,8 @@ This will put the traceId in MDC and this can be used in logback.xml as follows
 
 <p>MDCCurrentContext is deprecated , instead of that</p>
 
-<pre><code>ThreadLocalCurrentTraceContext.newBuilder().addScopeDecorator(new Slf4jScopeDecorator()).build()
+<pre><code>ThreadLocalCurrentTraceContext.newBuilder()
+.addScopeDecorator(new Slf4jScopeDecorator()).build()
 </code></pre>
 <ul class="pa0">
   
