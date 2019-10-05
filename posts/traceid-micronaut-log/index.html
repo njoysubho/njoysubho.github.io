@@ -150,22 +150,24 @@ For logging I have used Slf4j with logback . In micronaut support for generating
 <pre><code>@Bean
     public Tracing tracing() {
         val tracing = Tracing.newBuilder()
-                .localServiceName(&quot;hello&quot;)
-                .spanReporter(Reporter.NOOP)
-                .currentTraceContext(MDCCurrentTraceContext.create());
+         .localServiceName(&quot;hello&quot;)
+         .spanReporter(Reporter.NOOP)
+         .currentTraceContext(MDCCurrentTraceContext.create());
         return tracing.build();
     }
-
-This will put the traceId in MDC and this can be used in logback.xml as follows 
+ 
 </code></pre>
 
+<p>This will put the traceId in MDC and this can be used in logback.xml
+as follows</p>
+
 <pre><code> &lt;appender name=&quot;STDOUT&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
-        &lt;withJansi&gt;true&lt;/withJansi&gt;
-        &lt;!-- encoders are assigned the type
-             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;
-        &lt;encoder&gt;
-            &lt;pattern&gt;[%X{traceId}]- %msg%n&lt;/pattern&gt;
-        &lt;/encoder&gt;
+    &lt;withJansi&gt;true&lt;/withJansi&gt;
+     &lt;!-- encoders are assigned the type
+        ch.qos.logback.classic.encoder.PatternLayoutEncoder by default --&gt;
+      &lt;encoder&gt;
+        &lt;pattern&gt;[%X{traceId}]- %msg%n&lt;/pattern&gt;
+      &lt;/encoder&gt;
 &lt;/appender&gt;
 </code></pre>
 
