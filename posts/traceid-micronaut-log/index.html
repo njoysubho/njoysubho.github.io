@@ -35,7 +35,7 @@
 <meta itemprop="description" content="Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar . This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs . For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here https://guides.">
 <meta itemprop="datePublished" content="2019-10-05T10:58:51&#43;02:00" />
 <meta itemprop="dateModified" content="2019-10-05T10:58:51&#43;02:00" />
-<meta itemprop="wordCount" content="166">
+<meta itemprop="wordCount" content="165">
 
 
 
@@ -176,9 +176,9 @@ For logging I have used Slf4j with logback . In micronaut support for generating
 <pre><code>@Bean
     public Tracing tracing() {
         val tracing = Tracing.newBuilder()
-         .localServiceName(&quot;hello&quot;)
-         .spanReporter(Reporter.NOOP)
-         .currentTraceContext(MDCCurrentTraceContext.create());
+                .localServiceName(&quot;hello&quot;)
+                .spanReporter(Reporter.NOOP)
+                .currentTraceContext(MDCCurrentTraceContext.create());
         return tracing.build();
     }
 
@@ -194,7 +194,6 @@ This will put the traceId in MDC and this can be used in logback.xml as follows
 </code></pre><p>MDCCurrentContext is deprecated , instead of that</p>
 <pre><code>ThreadLocalCurrentTraceContext.newBuilder().addScopeDecorator(new Slf4jScopeDecorator()).build()
 </code></pre><ul class="pa0">
-
   
 </ul>
 <div class="mt6 instapaper_ignoref">

@@ -37,7 +37,7 @@
  So I created a services in a subnet , the subnet has rule that route all internet traffic to an internet gateway. The service has a simple task. I created all the infrastructure using terraform and deployed using github.">
 <meta itemprop="datePublished" content="2020-03-31T15:34:39&#43;02:00" />
 <meta itemprop="dateModified" content="2020-03-31T15:34:39&#43;02:00" />
-<meta itemprop="wordCount" content="480">
+<meta itemprop="wordCount" content="477">
 
 
 
@@ -185,10 +185,22 @@ I tried to look for cloudwatch logs unfortunately nothing was there ?</p>
 <p>My next impression was may be the health check timeout is too small however adjusting it to 10 second(Quite a large number the app is a very basic Micronaut app) does not solve the issue.</p>
 <p>In the mean time I was searching for container logs and I finally found them in TASK -&gt; Stopped TASK -&gt; Expanding the container .</p>
 <p>The log show something interesting it seems task cannot connect to ECR endpoint. This was clearly pointing now some issue with subnet and its connectivity to internet. I start looking into security groups for the task and it was all fine permitting OUTBOUND internet traffic. Next I looked into Subnet route table here I can see it is a public subnet routing internet traffic to internet gateway. Then why task can&rsquo;t reach ECR ?? . Below is where the answer lies</p>
-<pre><code>1.    If you're running a task using an Amazon Elastic Compute Cloud (Amazon EC2) launch type and your container instance is in a private subnet, or if you're running a task using the AWS Fargate launch type in a private subnet, confirm that your subnet has a route to a NAT gateway in the route table.
-
-2.    If you're running your task using an Amazon Elastic Compute Cloud (Amazon EC2) launch type and your container instance is in a public subnet, confirm that the instance has a public IP address. Or, if you're running a task using the Fargate launch type in a public subnet, choose ENABLED for Auto-assign public IP when you launch the task. This allows your task to have outbound network access to pull an image.
-</code></pre><p>I am running my task with FARGATE launch type but didn&rsquo;t want to assign public IP to tasks.
+<ol>
+<li>
+<p>If you&rsquo;re running a task using an Amazon Elastic Compute Cloud (Amazon EC2) launch type
+and your container instance is in a private subnet, or if you&rsquo;re running a task using the
+AWS Fargate launch type in a private subnet,confirm that your subnet has a route to a NAT gateway
+in the route table.</p>
+</li>
+<li>
+<p>If you&rsquo;re running your task using an Amazon Elastic Compute Cloud (Amazon EC2) launch type and your container
+instance is in a public subnet, confirm that the instance has a public IP address.
+Or, if you&rsquo;re running a task using the Fargate launch type in a public subnet,
+choose ENABLED for Auto-assign public IP when you launch the task.
+This allows your task to have outbound network access to pull an image.</p>
+</li>
+</ol>
+<p>I am running my task with FARGATE launch type but didn&rsquo;t want to assign public IP to tasks.
 So solution was to</p>
 <ul>
 <li>Deploy a NAT Gateway.</li>
