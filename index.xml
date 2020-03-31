@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sabyasachi Bhattacharya</title>
@@ -6,10 +6,20 @@
     <description>Recent content on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Oct 2019 10:58:51 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2020 15:34:39 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS Fargate Task Networking</title>
+      <link>https://njoysubho.github.io/posts/aws-fargate-task-networking/</link>
+      <pubDate>Tue, 31 Mar 2020 15:34:39 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/aws-fargate-task-networking/</guid>
+      <description>In order to explore more about deploying on ECS using terraform and github action I created a small project but as I try to deploy it on AWS ECS I found some interesting issue.
+ So I created a services in a subnet , the subnet has rule that route all internet traffic to an internet gateway. The service has a simple task. I created all the infrastructure using terraform and deployed using github.</description>
+    </item>
     
     <item>
       <title>Traceid Logging with Micronaut</title>
