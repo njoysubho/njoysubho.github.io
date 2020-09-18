@@ -4,20 +4,27 @@
   
   <url>
     <loc>https://njoysubho.github.io/posts/</loc>
-    <lastmod>2020-08-02T11:09:40+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://njoysubho.github.io/posts/provisioned-concurrency/</loc>
-    <lastmod>2020-08-02T11:09:40+02:00</lastmod>
+    <lastmod>2020-09-12T16:04:01+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://njoysubho.github.io/</loc>
+    <lastmod>2020-09-12T16:04:01+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://njoysubho.github.io/posts/consul-feign/</loc>
+    <lastmod>2020-09-12T16:04:01+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://njoysubho.github.io/posts/provisioned-concurrency/</loc>
     <lastmod>2020-08-02T11:09:40+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

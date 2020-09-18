@@ -31,14 +31,14 @@
     
     
     <meta property="og:title" content="Posts" />
-<meta property="og:description" content="The last theme you&#39;ll ever need. Maybe." />
+<meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/posts/" />
-<meta property="og:updated_time" content="2020-08-02T11:09:40+02:00" />
+<meta property="og:updated_time" content="2020-09-12T16:04:01+02:00" />
 <meta itemprop="name" content="Posts">
-<meta itemprop="description" content="The last theme you&#39;ll ever need. Maybe."><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="The last theme you&#39;ll ever need. Maybe."/>
+<meta name="twitter:description" content="Java|Spring and More"/>
 
   </head>
 
@@ -136,6 +136,24 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/consul-feign/" class="link black dim">
+        Spring Under the hood-Inside Feign and client side discovery with consul
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Feign using consul as discovery service is easy to setup thanks to Spring Autoconfigurations, but let&rsquo;s see how this magic is actually done -
+Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
+  HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
+  If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/provisioned-concurrency/" class="link black dim">
         Provisioned Concurrency
       </a>
@@ -157,24 +175,6 @@
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Spring Boot Actuator Health endpoint since 2.3.0 comes with two health groups Liveness and Readiness. Actuator Health points are being used to reflect the status of the application. Spring Boot also provides a way to add multiple health indicators together and form a group. As a continuation to this concept Spring Boot provides two HealthIndicator LivenessStateIndicator and ReadinessStateIndicator. These two indicators are added to liveness and readiness group respectively by AvailabilityProbesHealthEndpointGroups.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/aws-eks-fargate/" class="link black dim">
-        Deploy EKS Kubernetes Cluster with fargate
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      EKS is managed kubernetes service by AWS. This post will describe networking setup for EKS cluster.
-EKS have two options public cluster and private-public cluster. In the public cluster all nodes get a public IP and they can access internet traffic and vice versa.
-In public-private scheme nodes are all in private subnet and services are exposed via Loadbalancers in public subnet.
-We will see network configuration about public-private scheme. Below is the conceptual design of the cluster
     </div>
   </div>
 </div>
