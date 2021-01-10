@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Sep 2020 16:04:01 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 08 Jan 2021 07:02:58 +0100</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Weekend Journal 1</title>
+      <link>https://njoysubho.github.io/posts/weeklyjournal-01/</link>
+      <pubDate>Fri, 08 Jan 2021 07:02:58 +0100</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/weeklyjournal-01/</guid>
+      <description>Welcome to The Weekly Journal. Here I will try to compile link,blogposts etc which I read that week. This week I will start with a little look back on 2020.
+2020 like everyone else I remained constantly worrying, but I did manage to read some books and try out few things as follows
+  12 week a year - I can say till now the most influencing blinks that I read.</description>
+    </item>
     
     <item>
       <title>Spring Under the hood-Inside Feign and client side discovery with consul</title>
@@ -21,6 +32,19 @@
 Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
   HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
   If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.</description>
+    </item>
+    
+    <item>
+      <title>Post</title>
+      <link>https://njoysubho.github.io/posts/generic-variance/</link>
+      <pubDate>Sun, 23 Aug 2020 17:55:25 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/generic-variance/</guid>
+      <description>  Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
+  But we may need to use this. Jaba use wildcard concept
+  Producrer extends and consumer super
+  PE -&amp;gt; so that we bound the upper limit
+  </description>
     </item>
     
     <item>
