@@ -6,10 +6,27 @@
     <description>Recent content in Posts on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Jan 2021 07:02:58 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 14 Feb 2021 07:54:22 +0100</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Weekend Journal- Week-06</title>
+      <link>https://njoysubho.github.io/posts/the-weekend-journal-02/</link>
+      <pubDate>Sun, 14 Feb 2021 07:54:22 +0100</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/the-weekend-journal-02/</guid>
+      <description>Resilience4j
+This work I deep dive into resilience4j which is an alternative to Hystrix. Resilience4j is a lightweight fault tolerance library and a possible alternative to Hystrix. Resilience4j comes with following core modules -
+  resilience4j-circuitbreaker: Circuit breaking
+  resilience4j-ratelimiter
+  resilience4j-bulkhead
+  resilience4j-retry
+  resilience4j-timelimiter
+  resilience4j-cache
+  one can also stacked together combinations of different resiliency patterns. It also comes with spring-boot starter.</description>
+    </item>
     
     <item>
       <title>The Weekend Journal 1</title>
