@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/posts/" />
-<meta property="og:updated_time" content="2021-02-14T07:54:22+01:00" />
+<meta property="og:updated_time" content="2021-03-08T08:39:44+01:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -136,6 +136,22 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
+        Resilience4j, the path beyond Hystrix
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction
+In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&rsquo;s the migration path ahead, what is the alternative?
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/the-weekend-journal-02/" class="link black dim">
         The Weekend Journal- Week-06
       </a>
@@ -185,25 +201,6 @@ This work I deep dive into resilience4j which is an alternative to Hystrix. Resi
 Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
   HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
   If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/generic-variance/" class="link black dim">
-        Post
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-        Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
-  But we may need to use this. Jaba use wildcard concept
-  Producrer extends and consumer super
-  PE -&gt; so that we bound the upper limit
-  
     </div>
   </div>
 </div>

@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2021 07:54:22 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 08 Mar 2021 08:39:44 +0100</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Resilience4j, the path beyond Hystrix</title>
+      <link>https://njoysubho.github.io/posts/resilience4j/</link>
+      <pubDate>Mon, 08 Mar 2021 08:39:44 +0100</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/resilience4j/</guid>
+      <description>Introduction
+In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&amp;rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&amp;rsquo;s the migration path ahead, what is the alternative?</description>
+    </item>
     
     <item>
       <title>The Weekend Journal- Week-06</title>
@@ -49,19 +59,6 @@ This work I deep dive into resilience4j which is an alternative to Hystrix. Resi
 Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
   HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
   If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.</description>
-    </item>
-    
-    <item>
-      <title>Post</title>
-      <link>https://njoysubho.github.io/posts/generic-variance/</link>
-      <pubDate>Sun, 23 Aug 2020 17:55:25 +0200</pubDate>
-      
-      <guid>https://njoysubho.github.io/posts/generic-variance/</guid>
-      <description>  Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
-  But we may need to use this. Jaba use wildcard concept
-  Producrer extends and consumer super
-  PE -&amp;gt; so that we bound the upper limit
-  </description>
     </item>
     
     <item>
