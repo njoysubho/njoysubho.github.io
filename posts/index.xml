@@ -6,10 +6,33 @@
     <description>Recent content in Posts on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Mar 2021 08:39:44 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 19 Jul 2021 23:11:10 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Boot Actuator Health Endpoint</title>
+      <link>https://njoysubho.github.io/posts/spring-health-endpoint/</link>
+      <pubDate>Mon, 19 Jul 2021 23:11:10 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-health-endpoint/</guid>
+      <description>Health endpoint for a service exposes status of it&amp;rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.</description>
+    </item>
+    
+    <item>
+      <title>Spring Native</title>
+      <link>https://njoysubho.github.io/posts/spring-native/</link>
+      <pubDate>Fri, 12 Mar 2021 13:01:32 +0100</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-native/</guid>
+      <description>Introduction
+Startup comparison
+0 Points
+Docker needs to have 8G RAM otherwise error
+without typehints dtos are not added in refletive .
+TYpehints and nativehints are way to add your specific reflection classes</description>
+    </item>
     
     <item>
       <title>Resilience4j, the path beyond Hystrix</title>
@@ -59,6 +82,19 @@ This work I deep dive into resilience4j which is an alternative to Hystrix. Resi
 Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
   HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
   If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.</description>
+    </item>
+    
+    <item>
+      <title>Post</title>
+      <link>https://njoysubho.github.io/posts/generic-variance/</link>
+      <pubDate>Sun, 23 Aug 2020 17:55:25 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/generic-variance/</guid>
+      <description>  Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
+  But we may need to use this. Jaba use wildcard concept
+  Producrer extends and consumer super
+  PE -&amp;gt; so that we bound the upper limit
+  </description>
     </item>
     
     <item>
