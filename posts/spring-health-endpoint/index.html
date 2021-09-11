@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sabyasachi Bhattacharya  | Spring Boot Actuator Health Endpoint</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Spring Boot Actuator Health Endpoint" />
+<meta property="og:description" content="Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://njoysubho.github.io/posts/spring-health-endpoint/" />
+<meta property="article:published_time" content="2021-07-19T23:11:10+02:00" />
+<meta property="article:modified_time" content="2021-07-19T23:11:10+02:00" />
+<meta itemprop="name" content="Spring Boot Actuator Health Endpoint">
+<meta itemprop="description" content="Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.">
+<meta itemprop="datePublished" content="2021-07-19T23:11:10&#43;02:00" />
+<meta itemprop="dateModified" content="2021-07-19T23:11:10&#43;02:00" />
+<meta itemprop="wordCount" content="1237">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Boot Actuator Health Endpoint"/>
+<meta name="twitter:description" content="Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://njoysubho.github.io" class="f3 fw2 hover-white no-underline white-90 dib">
+      Sabyasachi Bhattacharya
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+<a href="https://twitter.com/sabz2301" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/sabyasachi-bhattacharya-a0283950/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/njoysubho" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://njoysubho.github.io/posts/spring-health-endpoint/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://njoysubho.github.io/posts/spring-health-endpoint/&amp;text=Spring%20Boot%20Actuator%20Health%20Endpoint" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://njoysubho.github.io/posts/spring-health-endpoint/&amp;title=Spring%20Boot%20Actuator%20Health%20Endpoint" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">Spring Boot Actuator Health Endpoint</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-07-19T23:11:10&#43;02:00">July 19, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not.
+Spring Boot actuator provides Health Endpoint out of the box. If we add <code>spring-boot-actuator</code> dependency we can get the URI <code>/actuator/health</code>.</p>
+<p>The status of health endpoint is the aggregate of its components. Each Component is an instance of <code>HealthContributor</code>. Each
+<code>HealthContributor</code> will either be an <code>HealthIndicator</code> or <code>CompositeHealthContributor</code>.</p>
+<p>First, let&rsquo;s see what are the default HealthIndicator that Spring Boot Actuator configures. To do that we add the following property in application.yml -</p>
+<p><code>management.endpoint.health.show-details: always</code></p>
+<p>Now if we do <code>curl localhost:8080/actuator/health | jq .</code> we get back</p>
+<pre><code>{
+  &quot;status&quot;: &quot;UP&quot;,
+  &quot;components&quot;: {
+    &quot;diskSpace&quot;: {
+      &quot;status&quot;: &quot;UP&quot;,
+    }
+    &quot;ping&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  }
+}
+</code></pre><p>We see here <code>diskSpace</code> and <code>ping</code>, by default all the health endpoint does is to check if there are enough diskspace and the context is up.</p>
+<p>The status of the health endpoint is the aggregate of its components. If any of the component is not in <code>UP</code> state, the health endpoint will be in <code>DOWN</code> state.</p>
+<h2 id="custom-health-indicator">Custom Health Indicator</h2>
+<p>To create a custom health indicator we need to implement <code>HealthIndicator</code> interface. Lets create two new Health Indicator classes.</p>
+<ul>
+<li>AlwaysUPHealthIndicator - will always return <code>UP</code></li>
+<li>AlwaysDownHealthIndicator - will always return <code>DOWN</code></li>
+</ul>
+<pre><code>@Component
+public class AlwaysUpHealthIndicator implements HealthIndicator {
+	@Override
+	public Health health() {
+		return Health.up().build();
+	}
+}
+</code></pre><pre><code>public class AlwaysDownHealthIndicator extends AbstractHealthIndicator {
+	@Override
+	protected void doHealthCheck(Health.Builder builder) throws Exception {
+		 builder.down();
+	}
+}
+</code></pre><p>I have deliberately used <code>AbstractHealthIndicator</code> to show that a custom health indicator can be a subclass of <code>AbstractHealthIndicator</code>. <code>AbstractHealthIndicator</code> implements <code>HealthIndicator</code> interface, and is useful if health check is going to throw an exception. It contains exception handling logic.</p>
+<p>After adding this two classes we can see the health endpoint is down, because AlwaysDownHealthIndicator is always in down state.</p>
+<pre><code>{
+  &quot;status&quot;: &quot;DOWN&quot;,
+  &quot;components&quot;: {
+    &quot;alwaysDown&quot;: {
+      &quot;status&quot;: &quot;DOWN&quot;
+    },
+    &quot;alwaysUp&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;diskSpace&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;ping&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  }
+}
+</code></pre><p>Now because we have added our custom health indicators, we may wish to disable it . There&rsquo;s no out of the box property to diable a custom health indicator. However if we look how it has been achieved in case of default health indicators are by using <code>ConditionalOnEnabledHealthIndicator</code> annotation. So we can add this to our custom health indicators. I am adding it to <code>AlwaysDownHealthIndicator</code> class. The class looks like below</p>
+<pre><code>@ConditionalOnEnabledHealthIndicator(&quot;always-down&quot;)
+@Component
+public class AlwaysDownHealthIndicator extends AbstractHealthIndicator {
+	@Override
+	protected void doHealthCheck(Health.Builder builder) throws Exception {
+		 builder.down();
+	}
+}
+
+</code></pre><p>We can disable <code>AlwaysDownHealthIndicator</code> by adding <code>management.health.always-down.enabled: false</code> property in application.yml.</p>
+<p>If we curl the health endpoint now, we will get back</p>
+<pre><code>{
+  &quot;status&quot;: &quot;UP&quot;,
+  &quot;components&quot;: {
+    &quot;alwaysUp&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;diskSpace&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;ping&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  }
+}
+</code></pre><p>Notice not only the component <code>alwaysDown</code> is missing, but also now the health check returns <code>UP</code>, because none of the components are <code>DOWN</code> right now.</p>
+<h2 id="health-group">Health Group</h2>
+<p>Individual health components can be grouped together , each of this group then can be accessed by <code>/actuator/health/&lt;group-name&gt;</code> endpoint.</p>
+<p>Let&rsquo;s create two new groups</p>
+<ul>
+<li>default - it will have diskspace and ping components.</li>
+<li>custom - it will have our custom alwaysUp and alwaysDown endpoints.</li>
+</ul>
+<p>This time health endpoint one additonal property in reply is <code>group</code></p>
+<pre><code>{
+  &quot;status&quot;: &quot;DOWN&quot;,
+  &quot;components&quot;: {
+    &quot;alwaysDown&quot;: {
+      &quot;status&quot;: &quot;DOWN&quot; ---&gt; I have enabled it again for this part
+    },
+    &quot;alwaysUp&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;diskSpace&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;ping&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  },
+  &quot;groups&quot;: [
+    &quot;custom&quot;,
+    &quot;default&quot;
+  ]
+}
+</code></pre><p>Upon accessing <code>/actuator/health/default</code> we get back</p>
+<pre><code>{
+  &quot;status&quot;: &quot;UP&quot;,
+  &quot;components&quot;: {
+    &quot;diskSpace&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;ping&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  }
+}
+</code></pre><p>and upon accessing <code>/actuator/health/custom</code> we get back</p>
+<pre><code>{
+  &quot;status&quot;: &quot;DOWN&quot;,
+  &quot;components&quot;: {
+    &quot;alwaysDown&quot;: {
+      &quot;status&quot;: &quot;DOWN&quot;
+    },
+    &quot;alwaysUp&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  }
+}
+</code></pre><h2 id="liveness-and-readiness">Liveness and Readiness</h2>
+<p>Spring boot comes with two special group called <code>liveness</code> and <code>readiness</code> . But before looking into details what is the use of this group lets understand what is the meaning in general about liveness and readiness.</p>
+<p>liveness - indicates that the internal state is valid for the instance. In simpler terms the service instance is up and running.</p>
+<p>readiness - indicates if the service is functional or it can serve request. A service may have some dependency and that dependency need to be in place for the service to serve any request, so although the service is up and running it may happend that the dependency is not available.</p>
+<p>We see a similar concept of liveness and readiness in kubernetes. We can define liveness probe and readiness probe for a pod. If the liveness probe fails, kubernetes will try to restart , however if the readiness probe fails kubernetes will not route any request to the pod.</p>
+<p>Spring boot actuator provide this two group out of the box. To enable it we need to add</p>
+<p><code>management.endpoint.health.probes.enabled: true</code></p>
+<p>A request to health endpoint will return</p>
+<pre><code>{
+  &quot;status&quot;: &quot;DOWN&quot;,
+  &quot;components&quot;: {
+    &quot;alwaysDown&quot;: {
+      &quot;status&quot;: &quot;DOWN&quot;
+    },
+    &quot;alwaysUp&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;diskSpace&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;livenessState&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;ping&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    },
+    &quot;readinessState&quot;: {
+      &quot;status&quot;: &quot;UP&quot;
+    }
+  },
+  &quot;groups&quot;: [
+    &quot;custom&quot;,
+    &quot;default&quot;,
+    &quot;liveness&quot;,
+    &quot;readiness&quot;
+  ]
+}
+</code></pre><p>Along side previous groups that we created , we see two new groups <code>liveness</code> and <code>readiness</code></p>
+<p>We can request this individual group similarly as we did for our custom groups</p>
+<p>A request to <code>/actuator/health/liveness</code> will return</p>
+<pre><code>{
+  &quot;status&quot;: &quot;UP&quot;
+}
+</code></pre><h2 id="a-little-deep-dive-into-liveness-and-readiness-health-indicator">A Little deep dive into liveness and readiness health indicator</h2>
+<p>We may wonder how liveness and readiness know when application is up and when it is ready to accept request. In the heart of it lies a spring event based architecture. Spring comes with <code>LivenessHealthIndicator</code> and <code>ReadinessHealthIndicator</code> class.
+Both of this class gets the information of the service availability for a dependency named <code>ApplicationAvailability</code> .
+<code>ApplicationAvailability</code> is an interface and <code>ApplicationAvailabilityBean</code> is an implementation. <code>ApplicationAvailabilityBean</code> is also a listener for <code>AvailabilityChangeEvent</code>. Any event it receieves is stored in a map named <code>events</code>.</p>
+<p>Now there are other components in Spring which publishes Liveness and Readiness events. For example <code>EventPublishingRunListener</code> publishes a <code>LivenessState.CORRECT</code> event when the context is refreshed or application is started. Similarly when all the Applicationrunner is already run it publishes <code>ReadinessState.ACCEPTING_TRAFFIC</code>. Another example is in <code>ServletWebServerApplicationContext#doClose</code> method that publishes <code> ReadinessState.REFUSING_TRAFFIC</code>.</p>
+<p><code>ApplicationAvailabilityBean</code> recieves these messages and store it into the in memory map. Upon querying liveness and readiness endpoint we get the momentan status for liveness and readiness events.</p>
+<p>Lastly, ofcourse we can add our own custom HealthIndicator to any of the liveness and readiness group. However we have to be alert about what indicator we are adding. It is advisable to not include any external dependency related check in liveness indicator, because a momentan hiccup in the dependency can cause the service to get restarted, or kicked out from Loadbalancers list of services.</p>
+<p>Finally, spring boot also enables various other health indicators based on jars on classpath for example redis, datasource, elasticsearch and many more.</p>
+<p>That&rsquo;s it from this blog, we see how spring boot configures health endpoints out of the box, and how to group them and we also know now what is the magic between these features.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
+    &copy;  Sabyasachi Bhattacharya 2021 
+  </a>
+    <div>
+
+
+
+
+<a href="https://twitter.com/sabz2301" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/sabyasachi-bhattacharya-a0283950/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/njoysubho" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
