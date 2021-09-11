@@ -21,20 +21,6 @@
     </item>
     
     <item>
-      <title>Spring Native</title>
-      <link>https://njoysubho.github.io/posts/spring-native/</link>
-      <pubDate>Fri, 12 Mar 2021 13:01:32 +0100</pubDate>
-      
-      <guid>https://njoysubho.github.io/posts/spring-native/</guid>
-      <description>Introduction
-Startup comparison
-0 Points
-Docker needs to have 8G RAM otherwise error
-without typehints dtos are not added in refletive .
-TYpehints and nativehints are way to add your specific reflection classes</description>
-    </item>
-    
-    <item>
       <title>Resilience4j, the path beyond Hystrix</title>
       <link>https://njoysubho.github.io/posts/resilience4j/</link>
       <pubDate>Mon, 08 Mar 2021 08:39:44 +0100</pubDate>
