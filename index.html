@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/" />
-<meta property="og:updated_time" content="2021-07-19T23:11:10+02:00" />
+<meta property="og:updated_time" content="2022-03-15T20:40:35+01:00" />
 <meta itemprop="name" content="Sabyasachi Bhattacharya">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sabyasachi Bhattacharya"/>
@@ -162,14 +162,16 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="color-inherit dim link">
-            Spring Boot Actuator Health Endpoint
+          <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="color-inherit dim link">
+            Deploy model with FastAPI and Heroku
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.
+          In this blog we will see how we can deploy our model with FastAPI and Heroku. Below technologies will be used:
+ FastAPI Heroku Docker Github workflow AWS  Our model will classify images of dogs and cats.
+First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs-cats . A model is creted using pretrained resnet model. The kaggle notebook is available here. Not really a SOTA model but it is good enough for our purposes.
         </div>
-          <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -184,25 +186,16 @@
   <div class="db pv4 ph3 ph0-l no-underline dark-gray">
     <div class="flex flex-column flex-row-ns">
       
-          
-        
-        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
-          <a href="https://njoysubho.github.io/posts/resilience4j/" class="db grow">
-            <img src="https://njoysubho.github.io/retry-featured.png" class="img" alt="image from Resilience4j, the path beyond Hystrix">
-          </a>
-        </div>
-      
-      <div class="blah w-100 w-60-ns pl3-ns">
+      <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/resilience4j/" class="color-inherit dim link">
-            Resilience4j, the path beyond Hystrix
+          <a href="https://njoysubho.github.io/posts/learning/" class="color-inherit dim link">
+            Give your learning a structure
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Introduction
-In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&rsquo;s the migration path ahead, what is the alternative?
+          Technology is ever-evolving and as developers, we are in a constant chase to keep ourselves up-to-date. If you are someone like me who often suffers from FOMO ( Fear of missing out), you might have found yourself with a never-ending TODO list of things to learn and yet had a feeling that too little has been achieved. Below are some of the tricks that I have used over time to keep myself focussed and manageable.
         </div>
-          <a href="https://njoysubho.github.io/posts/resilience4j/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/learning/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -219,26 +212,26 @@ In discussions of cloud-native applications or microservices, the theme that tak
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/spring-buildpack/" class="link black dim">
+              Spring Buildpack
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="link black dim">
+              Spring Boot Actuator Health Endpoint
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
+              Resilience4j, the path beyond Hystrix
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://njoysubho.github.io/posts/the-weekend-journal-02/" class="link black dim">
               The Weekend Journal- Week-06
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/weeklyjournal-01/" class="link black dim">
-              The Weekend Journal 1
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/consul-feign/" class="link black dim">
-              Spring Under the hood-Inside Feign and client side discovery with consul
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/generic-variance/" class="link black dim">
-              Post
             </a>
           </h2>
         
@@ -257,7 +250,7 @@ In discussions of cloud-native applications or microservices, the theme that tak
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
-    &copy;  Sabyasachi Bhattacharya 2021 
+    &copy;  Sabyasachi Bhattacharya 2022 
   </a>
     <div>
 
