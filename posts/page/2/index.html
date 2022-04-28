@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/posts/" />
-<meta property="og:updated_time" content="2022-03-15T20:40:35+01:00" />
+<meta property="og:updated_time" content="2022-04-24T08:23:28+02:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -136,6 +136,45 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
+        Resilience4j, the path beyond Hystrix
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction
+In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&rsquo;s the migration path ahead, what is the alternative?
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/the-weekend-journal-02/" class="link black dim">
+        The Weekend Journal- Week-06
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Resilience4j
+This work I deep dive into resilience4j which is an alternative to Hystrix. Resilience4j is a lightweight fault tolerance library and a possible alternative to Hystrix. Resilience4j comes with following core modules -
+  resilience4j-circuitbreaker: Circuit breaking
+  resilience4j-ratelimiter
+  resilience4j-bulkhead
+  resilience4j-retry
+  resilience4j-timelimiter
+  resilience4j-cache
+  one can also stacked together combinations of different resiliency patterns. It also comes with spring-boot starter.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/weeklyjournal-01/" class="link black dim">
         The Weekend Journal 1
       </a>
@@ -171,25 +210,6 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/generic-variance/" class="link black dim">
-        Post
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-        Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
-  But we may need to use this. Jaba use wildcard concept
-  Producrer extends and consumer super
-  PE -&gt; so that we bound the upper limit
-  
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/provisioned-concurrency/" class="link black dim">
         Provisioned Concurrency
       </a>
@@ -211,24 +231,6 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Spring Boot Actuator Health endpoint since 2.3.0 comes with two health groups Liveness and Readiness. Actuator Health points are being used to reflect the status of the application. Spring Boot also provides a way to add multiple health indicators together and form a group. As a continuation to this concept Spring Boot provides two HealthIndicator LivenessStateIndicator and ReadinessStateIndicator. These two indicators are added to liveness and readiness group respectively by AvailabilityProbesHealthEndpointGroups.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/aws-eks-fargate/" class="link black dim">
-        Deploy EKS Kubernetes Cluster with fargate
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      EKS is managed kubernetes service by AWS. This post will describe networking setup for EKS cluster.
-EKS have two options public cluster and private-public cluster. In the public cluster all nodes get a public IP and they can access internet traffic and vice versa.
-In public-private scheme nodes are all in private subnet and services are exposed via Loadbalancers in public subnet.
-We will see network configuration about public-private scheme. Below is the conceptual design of the cluster
     </div>
   </div>
 </div>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sabyasachi Bhattacharya  | Spring Rest Openapi</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Spring Rest Openapi" />
+<meta property="og:description" content="Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://njoysubho.github.io/posts/spring-rest-openapi/" />
+<meta property="article:published_time" content="2022-04-24T08:23:28+02:00" />
+<meta property="article:modified_time" content="2022-04-24T08:23:28+02:00" />
+<meta itemprop="name" content="Spring Rest Openapi">
+<meta itemprop="description" content="Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.">
+<meta itemprop="datePublished" content="2022-04-24T08:23:28&#43;02:00" />
+<meta itemprop="dateModified" content="2022-04-24T08:23:28&#43;02:00" />
+<meta itemprop="wordCount" content="1437">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Rest Openapi"/>
+<meta name="twitter:description" content="Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://njoysubho.github.io" class="f3 fw2 hover-white no-underline white-90 dib">
+      Sabyasachi Bhattacharya
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+<a href="https://twitter.com/sabz2301" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/sabyasachi-bhattacharya-a0283950/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/njoysubho" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://njoysubho.github.io/posts/spring-rest-openapi/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://njoysubho.github.io/posts/spring-rest-openapi/&amp;text=Spring%20Rest%20Openapi" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://njoysubho.github.io/posts/spring-rest-openapi/&amp;title=Spring%20Rest%20Openapi" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">Spring Rest Openapi</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-04-24T08:23:28&#43;02:00">April 24, 2022</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.</p>
+<h2 id="openapi-specification">OpenAPI Specification</h2>
+<p>APIs are contract between the application and consumers of the application. These consumers can be machines or humans. OpenAPI is a specification to write your API contract in human and machine readable format. It standardizes the way we can describe our API. The entire specififaction can be found here <code>https://spec.openapis.org/oas/v3.1.0</code> .</p>
+<h2 id="our-first-api-spec">Our First API Spec</h2>
+<p>Let&rsquo;s create a new service, I call it <code>inventory-service</code>. We now know how to generate a new spring boot application. We add a yml openAPI spec file in <code>src/resources/spec/inventory-api.yml</code> . A minimal API can look as follows -</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">openapi</span>: <span style="color:#e6db74">&#34;3.0.3&#34;</span>
+<span style="color:#66d9ef">info</span>:
+  <span style="color:#66d9ef">title</span>: inventory-api
+  <span style="color:#66d9ef">version</span>: <span style="color:#ae81ff">1.0.0</span>
+<span style="color:#66d9ef">paths</span>:
+  <span style="color:#66d9ef">/products</span>:
+    <span style="color:#66d9ef">get</span>:
+      <span style="color:#66d9ef">description</span>: Get All Products
+      <span style="color:#66d9ef">operationId</span>: getAllProducts
+      <span style="color:#66d9ef">responses</span>:
+        <span style="color:#66d9ef">&#39;200&#39;</span>:
+          <span style="color:#66d9ef">description</span>: All products are returned
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/ListOfProducts&#39;</span>
+        <span style="color:#66d9ef">&#39;404&#39;</span>:
+          <span style="color:#66d9ef">description</span>: No Product returned
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Error&#39;</span>
+    <span style="color:#66d9ef">post</span>:
+      <span style="color:#66d9ef">description</span>: Add A Product to inventory
+      <span style="color:#66d9ef">operationId</span>: addProduct
+      <span style="color:#66d9ef">requestBody</span>:
+        <span style="color:#66d9ef">content</span>:
+          <span style="color:#66d9ef">application/json</span>:
+            <span style="color:#66d9ef">schema</span>:
+              <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Product&#39;</span>
+      <span style="color:#66d9ef">responses</span>:
+        <span style="color:#66d9ef">&#39;201&#39;</span>:
+          <span style="color:#66d9ef">description</span>: Product added successfully
+          <span style="color:#66d9ef">headers</span>:
+            <span style="color:#66d9ef">location</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">type</span>: string
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Product&#39;</span>
+        <span style="color:#66d9ef">&#39;400&#39;</span>:
+          <span style="color:#66d9ef">description</span>: Bad Request
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Error&#39;</span>
+  /products/{<span style="color:#66d9ef">id}</span>:
+    <span style="color:#66d9ef">get</span>:
+      <span style="color:#66d9ef">description</span>: Get A Product By ID
+      <span style="color:#66d9ef">operationId</span>: getProductById
+      <span style="color:#66d9ef">parameters</span>:
+        - <span style="color:#66d9ef">in</span>: path
+          <span style="color:#66d9ef">name</span>: id
+          <span style="color:#66d9ef">schema</span>:
+            <span style="color:#66d9ef">type</span>: string
+            <span style="color:#66d9ef">format</span>: uuid
+          <span style="color:#66d9ef">required</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#66d9ef">responses</span>:
+        <span style="color:#66d9ef">&#39;200&#39;</span>:
+          <span style="color:#66d9ef">description</span>: Get a product by id
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Product&#39;</span>
+        <span style="color:#66d9ef">&#39;404&#39;</span>:
+          <span style="color:#66d9ef">description</span>: No Product returned
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Error&#39;</span>
+    <span style="color:#66d9ef">put</span>:
+      <span style="color:#66d9ef">description</span>: Update A Product
+      <span style="color:#66d9ef">operationId</span>: updateProduct
+      <span style="color:#66d9ef">parameters</span>:
+        - <span style="color:#66d9ef">in</span>: path
+          <span style="color:#66d9ef">name</span>: id
+          <span style="color:#66d9ef">schema</span>:
+            <span style="color:#66d9ef">type</span>: string
+            <span style="color:#66d9ef">format</span>: uuid
+          <span style="color:#66d9ef">required</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#66d9ef">requestBody</span>:
+        <span style="color:#66d9ef">content</span>:
+          <span style="color:#66d9ef">application/json</span>:
+            <span style="color:#66d9ef">schema</span>:
+              <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Product&#39;</span>
+      <span style="color:#66d9ef">responses</span>:
+        <span style="color:#66d9ef">&#39;200&#39;</span>:
+          <span style="color:#66d9ef">description</span>: Created product is  returned
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Product&#39;</span>
+        <span style="color:#66d9ef">&#39;400&#39;</span>:
+          <span style="color:#66d9ef">description</span>: Bad Request
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Error&#39;</span>
+        <span style="color:#66d9ef">&#39;404&#39;</span>:
+          <span style="color:#66d9ef">description</span>: Product Does not Exist
+          <span style="color:#66d9ef">content</span>:
+            <span style="color:#66d9ef">application/json</span>:
+              <span style="color:#66d9ef">schema</span>:
+                <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Error&#39;</span>
+<span style="color:#66d9ef">components</span>:
+  <span style="color:#66d9ef">schemas</span>:
+    <span style="color:#66d9ef">ListOfProducts</span>:
+      <span style="color:#66d9ef">type</span>: array
+      <span style="color:#66d9ef">items</span>:
+        <span style="color:#66d9ef">$ref</span>: <span style="color:#e6db74">&#39;#/components/schemas/Product&#39;</span>
+
+    <span style="color:#66d9ef">Product</span>:
+      <span style="color:#66d9ef">type</span>: object
+      <span style="color:#66d9ef">properties</span>:
+        <span style="color:#66d9ef">id</span>:
+          <span style="color:#66d9ef">type</span>: string
+          <span style="color:#66d9ef">format</span>: UUID
+    <span style="color:#66d9ef">Error</span>:
+      <span style="color:#66d9ef">type</span>: object
+      <span style="color:#66d9ef">properties</span>:
+        <span style="color:#66d9ef">message</span>:
+          <span style="color:#66d9ef">type</span>: string
+</code></pre></div><p>It is a very minimal API . We can see in <code>paths</code> section we have description of our API. Each API endpoint has it&rsquo;s optional request body and response body. We can also define if some custom headers are required, path parameters , query parameters and so on.
+In the <code>components</code> section we define our models and these are referenced in our API.</p>
+<p>I will not go deeper into the OpenAPI spec but because it is very vast but we can always consult the spec for our specific use case .</p>
+<h2 id="generating-rest-api-for-spring">Generating REST API for Spring</h2>
+<p>Now that we have our OpenAPI spec, there are plugins and tool available to generate code from our spec. We can use the <code>openapi-generator</code> <a href="https://openapi-generator.tech/docs/installation">https://openapi-generator.tech/docs/installation</a> to generate our REST API. We can use cli to generate our REST API.
+However there is also a maven plugin <a href="https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin">https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin</a> which we will use to generate our source .</p>
+<p>The maven plugin uses the openapi-generator to generate the source code.</p>
+<p>To use the maven-plugin we will add it to the build section like following -</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;plugin&gt;</span>
+   <span style="color:#f92672">&lt;groupId&gt;</span>org.openapitools<span style="color:#f92672">&lt;/groupId&gt;</span>
+   <span style="color:#f92672">&lt;artifactId&gt;</span>openapi-generator-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+   <span style="color:#f92672">&lt;version&gt;</span>5.4.0<span style="color:#f92672">&lt;/version&gt;</span>
+   <span style="color:#f92672">&lt;executions&gt;</span>
+       <span style="color:#f92672">&lt;execution&gt;</span>
+           <span style="color:#f92672">&lt;goals&gt;</span>
+               <span style="color:#f92672">&lt;goal&gt;</span>generate<span style="color:#f92672">&lt;/goal&gt;</span>
+           <span style="color:#f92672">&lt;/goals&gt;</span>
+           <span style="color:#f92672">&lt;configuration&gt;</span>
+               <span style="color:#f92672">&lt;inputSpec&gt;</span>${project.basedir}/src/main/resources/spec/inventory-api.yml<span style="color:#f92672">&lt;/inputSpec&gt;</span>
+               <span style="color:#f92672">&lt;generatorName&gt;</span>spring<span style="color:#f92672">&lt;/generatorName&gt;</span>
+               <span style="color:#f92672">&lt;generateSupportingFiles&gt;</span>false<span style="color:#f92672">&lt;/generateSupportingFiles&gt;</span>
+               <span style="color:#f92672">&lt;configOptions&gt;</span>
+                   <span style="color:#f92672">&lt;basePackage&gt;</span>com.sab.inventory<span style="color:#f92672">&lt;/basePackage&gt;</span>
+                   <span style="color:#f92672">&lt;sourceFolder&gt;</span>src/java/main<span style="color:#f92672">&lt;/sourceFolder&gt;</span>
+                   <span style="color:#f92672">&lt;interfaceOnly&gt;</span>true<span style="color:#f92672">&lt;/interfaceOnly&gt;</span>
+                   <span style="color:#f92672">&lt;modelPackage&gt;</span>com.sab.inventory.dto<span style="color:#f92672">&lt;/modelPackage&gt;</span>
+                   <span style="color:#f92672">&lt;apiPackage&gt;</span>com.sab.inventory.api<span style="color:#f92672">&lt;/apiPackage&gt;</span>
+                   <span style="color:#f92672">&lt;skipDefaultInterface&gt;</span>true<span style="color:#f92672">&lt;/skipDefaultInterface&gt;</span>
+                   <span style="color:#f92672">&lt;openApiNullable&gt;</span>false<span style="color:#f92672">&lt;/openApiNullable&gt;</span>
+               <span style="color:#f92672">&lt;/configOptions&gt;</span>
+           <span style="color:#f92672">&lt;/configuration&gt;</span>
+       <span style="color:#f92672">&lt;/execution&gt;</span>
+   <span style="color:#f92672">&lt;/executions&gt;</span>
+<span style="color:#f92672">&lt;/plugin&gt;</span>
+
+</code></pre></div><p>Both the plugin and the actual openapi-generator has lot of config options we can check it from <a href="https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin">https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin</a> and <a href="https://openapi-generator.tech/docs/generators/spring">https://openapi-generator.tech/docs/generators/spring</a>.</p>
+<p>In the above example I have used the bare minimum config . I will explain them below .</p>
+<pre><code>* `inputSpec` - This is the path to the OpenAPI spec file.
+* `generatorName` - ooenapi-generator can produce source code multiple language and framework. Because we want to generate for Spring I chose spring as the generator name.
+* `generateSupportingFiles` - When I generated first I saw some unecessary supporting files were generated as I do not need those I turned it to false.
+* `configOptions` - Properties that maps directly to the generator options.
+   ** `basePackage` - package name for your generated sources
+   ** `sourceFolder` - folder where your generated sources will be placed
+   **  `interfaceOnly` - We can either generate only REST API interface or we can generate some default code. I make it true as I want to generate only REST API interface.
+   ** `modelPackage` - package name for your generated model/dto classes.
+   ** `apiPackage` - package name for your generated API classes.
+   **   `skipDefaultInterface` - We can skip the genration of default methods in the interface.
+   ** `openApiNullable` - With the value true it will generate an import of `org.openapitools.jackson.nullable.JsonNullable` however I didn't need it so I make it false.
+</code></pre>
+<p>So what is the output of the above code ? Below is how our REST API stub looks like</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech) (5.4.0).
+</span><span style="color:#75715e"> * https://openapi-generator.tech
+</span><span style="color:#75715e"> * Do not edit the class manually.
+</span><span style="color:#75715e"> */</span>
+<span style="color:#f92672">package</span> com.sab.inventory.api<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.sab.inventory.dto.Error<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> com.sab.inventory.dto.Product<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.UUID<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.Operation<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.Parameter<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.Parameters<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.media.Content<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.media.Schema<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.responses.ApiResponse<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.security.SecurityRequirement<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> io.swagger.v3.oas.annotations.tags.Tag<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.HttpStatus<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.MediaType<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.http.ResponseEntity<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.validation.annotation.Validated<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.bind.annotation.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.context.request.NativeWebRequest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.web.multipart.MultipartFile<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> javax.validation.Valid<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.validation.constraints.*<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Map<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> java.util.Optional<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.annotation.Generated<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Generated</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;org.openapitools.codegen.languages.SpringCodegen&#34;</span><span style="color:#f92672">,</span> date <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2022-04-23T22:00:49.464591+02:00[Europe/Berlin]&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Validated</span>
+<span style="color:#a6e22e">@Tag</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;products&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;the products API&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ProductsApi</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * POST /products
+</span><span style="color:#75715e">     * Add A Product to inventory
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param product  (optional)
+</span><span style="color:#75715e">     * @return All products are returned (status code 201)
+</span><span style="color:#75715e">     *         or No Product returned (status code 400)
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Operation</span><span style="color:#f92672">(</span>
+        operationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;addProduct&#34;</span><span style="color:#f92672">,</span>
+        responses <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;201&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;All products are returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Product<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))),</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;400&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;No Product returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Error<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)))</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>
+        method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">POST</span><span style="color:#f92672">,</span>
+        value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/products&#34;</span><span style="color:#f92672">,</span>
+        produces <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;application/json&#34;</span> <span style="color:#f92672">},</span>
+        consumes <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;application/json&#34;</span> <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    ResponseEntity<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">addProduct</span><span style="color:#f92672">(</span>
+        <span style="color:#a6e22e">@Parameter</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Product&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">))</span> <span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span><span style="color:#f92672">(</span>required <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span> Product product
+    <span style="color:#f92672">);</span>
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * GET /products
+</span><span style="color:#75715e">     * Get All Products
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @return All products are returned (status code 200)
+</span><span style="color:#75715e">     *         or No Product returned (status code 404)
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Operation</span><span style="color:#f92672">(</span>
+        operationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getAllProducts&#34;</span><span style="color:#f92672">,</span>
+        responses <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;200&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;All products are returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Product<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))),</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;404&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;No Product returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Error<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)))</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>
+        method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">,</span>
+        value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/products&#34;</span><span style="color:#f92672">,</span>
+        produces <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;application/json&#34;</span> <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    ResponseEntity<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">getAllProducts</span><span style="color:#f92672">(</span>
+        
+    <span style="color:#f92672">);</span>
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * GET /products/{id}
+</span><span style="color:#75715e">     * Get A Product By ID
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param id  (required)
+</span><span style="color:#75715e">     * @return All products are returned (status code 200)
+</span><span style="color:#75715e">     *         or No Product returned (status code 404)
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Operation</span><span style="color:#f92672">(</span>
+        operationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;getProductById&#34;</span><span style="color:#f92672">,</span>
+        responses <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;200&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;All products are returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Product<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))),</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;404&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;No Product returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Error<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)))</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>
+        method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">,</span>
+        value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/products/{id}&#34;</span><span style="color:#f92672">,</span>
+        produces <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;application/json&#34;</span> <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    ResponseEntity<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getProductById</span><span style="color:#f92672">(</span>
+        <span style="color:#a6e22e">@Parameter</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">,</span> required <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">))</span> <span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span> UUID id
+    <span style="color:#f92672">);</span>
+
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * PUT /products/{id}
+</span><span style="color:#75715e">     * Update A Product
+</span><span style="color:#75715e">     *
+</span><span style="color:#75715e">     * @param id  (required)
+</span><span style="color:#75715e">     * @param product  (optional)
+</span><span style="color:#75715e">     * @return Created product is  returned (status code 200)
+</span><span style="color:#75715e">     *         or Error (status code 400)
+</span><span style="color:#75715e">     *         or Product Does not Exist (status code 404)
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#a6e22e">@Operation</span><span style="color:#f92672">(</span>
+        operationId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;updateProduct&#34;</span><span style="color:#f92672">,</span>
+        responses <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;200&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Created product is  returned&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Product<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))),</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;400&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Error&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Error<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">))),</span>
+            <span style="color:#a6e22e">@ApiResponse</span><span style="color:#f92672">(</span>responseCode <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;404&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Product Does not Exist&#34;</span><span style="color:#f92672">,</span> content <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Content</span><span style="color:#f92672">(</span>mediaType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;application/json&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>implementation <span style="color:#f92672">=</span>  Error<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)))</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>
+        method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">PUT</span><span style="color:#f92672">,</span>
+        value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/products/{id}&#34;</span><span style="color:#f92672">,</span>
+        produces <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;application/json&#34;</span> <span style="color:#f92672">},</span>
+        consumes <span style="color:#f92672">=</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;application/json&#34;</span> <span style="color:#f92672">}</span>
+    <span style="color:#f92672">)</span>
+    ResponseEntity<span style="color:#f92672">&lt;</span>Product<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">updateProduct</span><span style="color:#f92672">(</span>
+        <span style="color:#a6e22e">@Parameter</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">,</span> required <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">))</span> <span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span> UUID id<span style="color:#f92672">,</span>
+        <span style="color:#a6e22e">@Parameter</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Product&#34;</span><span style="color:#f92672">,</span> description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">,</span> schema <span style="color:#f92672">=</span> <span style="color:#a6e22e">@Schema</span><span style="color:#f92672">(</span>description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">))</span> <span style="color:#a6e22e">@Valid</span> <span style="color:#a6e22e">@RequestBody</span><span style="color:#f92672">(</span>required <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span> Product product
+    <span style="color:#f92672">);</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Now we have our API interface , we can now create our controller and implement the methods.</p>
+<p>So that&rsquo;s it for this post, I will actually implement the API using tests so watch out for the next post.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
+    &copy;  Sabyasachi Bhattacharya 2022 
+  </a>
+    <div>
+
+
+
+
+<a href="https://twitter.com/sabz2301" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/sabyasachi-bhattacharya-a0283950/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/njoysubho" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

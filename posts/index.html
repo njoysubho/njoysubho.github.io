@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/posts/" />
-<meta property="og:updated_time" content="2022-03-15T20:40:35+01:00" />
+<meta property="og:updated_time" content="2022-04-24T08:23:28+02:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -136,6 +136,52 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="link black dim">
+        Spring Rest Openapi
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="link black dim">
+        Spring Dockerize
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      In my previous post we saw how to create a simple spring boot application which actually does nothing much. I also touched about how to package that as jar file and run locally. However currently in production environment docker is hugely adopted. In this post we will see how to dockerize our spring boot application.
+First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries# Install JavaRUN apt-get update \  &amp;&amp; apt-get install -y curl\  &amp;&amp; apt-get install -y openjdk-17-jdk ca-certificates-java\  &amp;&amp; apt-get clean \  &amp;&amp; update-ca-certificates -fENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64RUN export JAVA_HOME# Install MavenRUN curl -OLs ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/spring-first-step/" class="link black dim">
+        Spring First Step
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Introduction I have been using Spring framework ecosystem since 2012. Overtime many new modules has been added and the adoption of the framework has increased. As of today it is I can say most popular framework in the industry. But one problem remains for new users of Spring that because Spring does a lot of work under-the-hood, it is sometimes feels like magic and generally production systems differ a lot from your getting started guide it is even more important to not only rely on what is coming out of the box but also to understand how it works.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="link black dim">
         Deploy model with FastAPI and Heroku
       </a>
@@ -168,67 +214,12 @@ First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/spring-buildpack/" class="link black dim">
-        Spring Buildpack
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Buildpacks are modular tool to create OCI compliant images for your application, without using Dockerfile. Before we see how Spring boot uses buildpack lets look into major components of buildpack and how they contribute in image building.
- Builder -&gt; This is itself is an image that builds the image for your application. Buildpack -&gt; A buildpack does the actual job of analysing your application code and contributes in image generation.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="link black dim">
         Spring Boot Actuator Health Endpoint
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
-        Resilience4j, the path beyond Hystrix
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Introduction
-In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&rsquo;s the migration path ahead, what is the alternative?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/the-weekend-journal-02/" class="link black dim">
-        The Weekend Journal- Week-06
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Resilience4j
-This work I deep dive into resilience4j which is an alternative to Hystrix. Resilience4j is a lightweight fault tolerance library and a possible alternative to Hystrix. Resilience4j comes with following core modules -
-  resilience4j-circuitbreaker: Circuit breaking
-  resilience4j-ratelimiter
-  resilience4j-bulkhead
-  resilience4j-retry
-  resilience4j-timelimiter
-  resilience4j-cache
-  one can also stacked together combinations of different resiliency patterns. It also comes with spring-boot starter.
     </div>
   </div>
 </div>

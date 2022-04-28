@@ -6,10 +6,38 @@
     <description>Recent content on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Mar 2022 20:40:35 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 24 Apr 2022 08:23:28 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Rest Openapi</title>
+      <link>https://njoysubho.github.io/posts/spring-rest-openapi/</link>
+      <pubDate>Sun, 24 Apr 2022 08:23:28 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-rest-openapi/</guid>
+      <description>Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.</description>
+    </item>
+    
+    <item>
+      <title>Spring Dockerize</title>
+      <link>https://njoysubho.github.io/posts/spring-dockerize/</link>
+      <pubDate>Sat, 16 Apr 2022 10:22:24 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-dockerize/</guid>
+      <description>In my previous post we saw how to create a simple spring boot application which actually does nothing much. I also touched about how to package that as jar file and run locally. However currently in production environment docker is hugely adopted. In this post we will see how to dockerize our spring boot application.
+First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries# Install JavaRUN apt-get update \  &amp;amp;&amp;amp; apt-get install -y curl\  &amp;amp;&amp;amp; apt-get install -y openjdk-17-jdk ca-certificates-java\  &amp;amp;&amp;amp; apt-get clean \  &amp;amp;&amp;amp; update-ca-certificates -fENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64RUN export JAVA_HOME# Install MavenRUN curl -OLs ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.</description>
+    </item>
+    
+    <item>
+      <title>Spring First Step</title>
+      <link>https://njoysubho.github.io/posts/spring-first-step/</link>
+      <pubDate>Sun, 10 Apr 2022 10:16:33 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-first-step/</guid>
+      <description>Introduction I have been using Spring framework ecosystem since 2012. Overtime many new modules has been added and the adoption of the framework has increased. As of today it is I can say most popular framework in the industry. But one problem remains for new users of Spring that because Spring does a lot of work under-the-hood, it is sometimes feels like magic and generally production systems differ a lot from your getting started guide it is even more important to not only rely on what is coming out of the box but also to understand how it works.</description>
+    </item>
     
     <item>
       <title>Deploy model with FastAPI and Heroku</title>
@@ -29,16 +57,6 @@ First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs
       
       <guid>https://njoysubho.github.io/posts/learning/</guid>
       <description>Technology is ever-evolving and as developers, we are in a constant chase to keep ourselves up-to-date. If you are someone like me who often suffers from FOMO ( Fear of missing out), you might have found yourself with a never-ending TODO list of things to learn and yet had a feeling that too little has been achieved. Below are some of the tricks that I have used over time to keep myself focussed and manageable.</description>
-    </item>
-    
-    <item>
-      <title>Spring Buildpack</title>
-      <link>https://njoysubho.github.io/posts/spring-buildpack/</link>
-      <pubDate>Sun, 19 Sep 2021 12:10:48 +0200</pubDate>
-      
-      <guid>https://njoysubho.github.io/posts/spring-buildpack/</guid>
-      <description>Buildpacks are modular tool to create OCI compliant images for your application, without using Dockerfile. Before we see how Spring boot uses buildpack lets look into major components of buildpack and how they contribute in image building.
- Builder -&amp;gt; This is itself is an image that builds the image for your application. Buildpack -&amp;gt; A buildpack does the actual job of analysing your application code and contributes in image generation.</description>
     </item>
     
     <item>
@@ -98,19 +116,6 @@ This work I deep dive into resilience4j which is an alternative to Hystrix. Resi
 Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
   HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
   If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.</description>
-    </item>
-    
-    <item>
-      <title>Post</title>
-      <link>https://njoysubho.github.io/posts/generic-variance/</link>
-      <pubDate>Sun, 23 Aug 2020 17:55:25 +0200</pubDate>
-      
-      <guid>https://njoysubho.github.io/posts/generic-variance/</guid>
-      <description>  Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
-  But we may need to use this. Jaba use wildcard concept
-  Producrer extends and consumer super
-  PE -&amp;gt; so that we bound the upper limit
-  </description>
     </item>
     
     <item>

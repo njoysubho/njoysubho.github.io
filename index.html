@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/" />
-<meta property="og:updated_time" content="2022-03-15T20:40:35+01:00" />
+<meta property="og:updated_time" content="2022-04-24T08:23:28+02:00" />
 <meta itemprop="name" content="Sabyasachi Bhattacharya">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sabyasachi Bhattacharya"/>
@@ -162,16 +162,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="color-inherit dim link">
-            Deploy model with FastAPI and Heroku
+          <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="color-inherit dim link">
+            Spring Rest Openapi
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          In this blog we will see how we can deploy our model with FastAPI and Heroku. Below technologies will be used:
- FastAPI Heroku Docker Github workflow AWS  Our model will classify images of dogs and cats.
-First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs-cats . A model is creted using pretrained resnet model. The kaggle notebook is available here. Not really a SOTA model but it is good enough for our purposes.
+          Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.
         </div>
-          <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -188,14 +186,15 @@ First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/learning/" class="color-inherit dim link">
-            Give your learning a structure
+          <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="color-inherit dim link">
+            Spring Dockerize
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Technology is ever-evolving and as developers, we are in a constant chase to keep ourselves up-to-date. If you are someone like me who often suffers from FOMO ( Fear of missing out), you might have found yourself with a never-ending TODO list of things to learn and yet had a feeling that too little has been achieved. Below are some of the tricks that I have used over time to keep myself focussed and manageable.
+          In my previous post we saw how to create a simple spring boot application which actually does nothing much. I also touched about how to package that as jar file and run locally. However currently in production environment docker is hugely adopted. In this post we will see how to dockerize our spring boot application.
+First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries# Install JavaRUN apt-get update \  &amp;&amp; apt-get install -y curl\  &amp;&amp; apt-get install -y openjdk-17-jdk ca-certificates-java\  &amp;&amp; apt-get clean \  &amp;&amp; update-ca-certificates -fENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64RUN export JAVA_HOME# Install MavenRUN curl -OLs ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.
         </div>
-          <a href="https://njoysubho.github.io/posts/learning/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -212,26 +211,26 @@ First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/spring-buildpack/" class="link black dim">
-              Spring Buildpack
+            <a href="https://njoysubho.github.io/posts/spring-first-step/" class="link black dim">
+              Spring First Step
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="link black dim">
+              Deploy model with FastAPI and Heroku
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/learning/" class="link black dim">
+              Give your learning a structure
             </a>
           </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="link black dim">
               Spring Boot Actuator Health Endpoint
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
-              Resilience4j, the path beyond Hystrix
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/the-weekend-journal-02/" class="link black dim">
-              The Weekend Journal- Week-06
             </a>
           </h2>
         
