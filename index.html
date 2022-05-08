@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/" />
-<meta property="og:updated_time" content="2022-04-24T08:23:28+02:00" />
+<meta property="og:updated_time" content="2022-05-08T10:41:13+02:00" />
 <meta itemprop="name" content="Sabyasachi Bhattacharya">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sabyasachi Bhattacharya"/>
@@ -162,14 +162,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="color-inherit dim link">
-            Spring Rest Openapi
+          <a href="https://njoysubho.github.io/posts/spring-jpa/" class="color-inherit dim link">
+            Spring Jpa
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.
+          Introduction We started with a simple hello world application and we covered up to how to set up our database schema flyway. We are now ready to write some code which will interact with database. Before we jump on to code let&rsquo;s look at a bit of history. Java has a nice JDBC api which helps us query database. Making it a base many ORM tools come into existence, Hibernate, Mybatis, Toplink to name a few.
         </div>
-          <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/spring-jpa/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -186,15 +186,14 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="color-inherit dim link">
-            Spring Dockerize
+          <a href="https://njoysubho.github.io/posts/spring-flyway/" class="color-inherit dim link">
+            Spring Flyway
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          In my previous post we saw how to create a simple spring boot application which actually does nothing much. I also touched about how to package that as jar file and run locally. However currently in production environment docker is hugely adopted. In this post we will see how to dockerize our spring boot application.
-First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https://downloads.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries# Install JavaRUN apt-get update \  &amp;&amp; apt-get install -y curl\  &amp;&amp; apt-get install -y openjdk-17-jdk ca-certificates-java\  &amp;&amp; apt-get clean \  &amp;&amp; update-ca-certificates -fENV JAVA_HOME /usr/lib/jvm/java-17-openjdk-amd64RUN export JAVA_HOME# Install MavenRUN curl -OLs ${BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.
+          Introduction Most of the services that we generally encounter in our daily job will simply take some input from users and populate database , and read from database and show it on UI. Each database has a schema, now it is rarely happens that we know each nitty gritty of our domain and come up with a perfect schema at day one. Most of the time we go thorugh an iterative process of modifying our schema as and when requirments change.
         </div>
-          <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/spring-flyway/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -211,6 +210,18 @@ First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="link black dim">
+              Spring Rest Openapi
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="link black dim">
+              Spring Dockerize
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://njoysubho.github.io/posts/spring-first-step/" class="link black dim">
               Spring First Step
             </a>
@@ -219,18 +230,6 @@ First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="link black dim">
               Deploy model with FastAPI and Heroku
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/learning/" class="link black dim">
-              Give your learning a structure
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="link black dim">
-              Spring Boot Actuator Health Endpoint
             </a>
           </h2>
         

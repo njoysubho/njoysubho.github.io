@@ -6,10 +6,28 @@
     <description>Recent content on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Apr 2022 08:23:28 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 08 May 2022 10:41:13 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Jpa</title>
+      <link>https://njoysubho.github.io/posts/spring-jpa/</link>
+      <pubDate>Sun, 08 May 2022 10:41:13 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-jpa/</guid>
+      <description>Introduction We started with a simple hello world application and we covered up to how to set up our database schema flyway. We are now ready to write some code which will interact with database. Before we jump on to code let&amp;rsquo;s look at a bit of history. Java has a nice JDBC api which helps us query database. Making it a base many ORM tools come into existence, Hibernate, Mybatis, Toplink to name a few.</description>
+    </item>
+    
+    <item>
+      <title>Spring Flyway</title>
+      <link>https://njoysubho.github.io/posts/spring-flyway/</link>
+      <pubDate>Sat, 30 Apr 2022 16:37:58 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-flyway/</guid>
+      <description>Introduction Most of the services that we generally encounter in our daily job will simply take some input from users and populate database , and read from database and show it on UI. Each database has a schema, now it is rarely happens that we know each nitty gritty of our domain and come up with a perfect schema at day one. Most of the time we go thorugh an iterative process of modifying our schema as and when requirments change.</description>
+    </item>
     
     <item>
       <title>Spring Rest Openapi</title>
