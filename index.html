@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/" />
-<meta property="og:updated_time" content="2022-05-08T10:41:13+02:00" />
+<meta property="og:updated_time" content="2022-08-06T11:22:42+02:00" />
 <meta itemprop="name" content="Sabyasachi Bhattacharya">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sabyasachi Bhattacharya"/>
@@ -162,14 +162,16 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/spring-jpa/" class="color-inherit dim link">
-            Spring Jpa
+          <a href="https://njoysubho.github.io/posts/spring-cloud-feign/" class="color-inherit dim link">
+            Spring Cloud Feign
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Introduction We started with a simple hello world application and we covered up to how to set up our database schema flyway. We are now ready to write some code which will interact with database. Before we jump on to code let&rsquo;s look at a bit of history. Java has a nice JDBC api which helps us query database. Making it a base many ORM tools come into existence, Hibernate, Mybatis, Toplink to name a few.
+          Often a service needs to call Http endpoints , Feign comes from the OpenFeign project makes it easier to call http endpoints in a declarative fashion. Spring has openfeign integraton through its Spring Cloud OpenFeign integration.
+How To include feign clients The actual project for feign is OpenFeign https://github.com/OpenFeign/feign . Spring comes with it&rsquo;s own starter . Add below dependency to the project
+&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt; &lt;/dependency&gt; For an example let&rsquo;s create a service named feign-serviceA which will call feign-serviceB .
         </div>
-          <a href="https://njoysubho.github.io/posts/spring-jpa/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/spring-cloud-feign/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -184,16 +186,25 @@
   <div class="db pv4 ph3 ph0-l no-underline dark-gray">
     <div class="flex flex-column flex-row-ns">
       
-      <div class="blah w-100">
+          
+        
+        <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+          <a href="https://njoysubho.github.io/posts/spring-boot-metrics/" class="db grow">
+            <img src="https://njoysubho.github.io/spring-metric-header.png" class="img" alt="image from Spring Boot Metrics">
+          </a>
+        </div>
+      
+      <div class="blah w-100 w-60-ns pl3-ns">
         <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="https://njoysubho.github.io/posts/spring-flyway/" class="color-inherit dim link">
-            Spring Flyway
+          <a href="https://njoysubho.github.io/posts/spring-boot-metrics/" class="color-inherit dim link">
+            Spring Boot Metrics
             </a>
         </h1>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Introduction Most of the services that we generally encounter in our daily job will simply take some input from users and populate database , and read from database and show it on UI. Each database has a schema, now it is rarely happens that we know each nitty gritty of our domain and come up with a perfect schema at day one. Most of the time we go thorugh an iterative process of modifying our schema as and when requirments change.
+          Introduction Observability is one of the pillars of modern microservices architecture. Application metrics is one dimension of that observbility. When an application runs on production we may want to know various operational metrics like memory,cpu ,threadpool usage etc as well as buisness metrics for example how many request for a particular operations are made. Spring boot with the help of micrometer enables application developers to expose various metrices.
+Setup metrics To add support for metrics , we need to add actuator dependency
         </div>
-          <a href="https://njoysubho.github.io/posts/spring-flyway/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+          <a href="https://njoysubho.github.io/posts/spring-boot-metrics/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
         
       </div>
     </div>
@@ -210,26 +221,26 @@
         
         
           <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/aws-cdk/" class="link black dim">
+              Aws Cdk
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/spring-jpa/" class="link black dim">
+              Spring Jpa
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="https://njoysubho.github.io/posts/spring-flyway/" class="link black dim">
+              Spring Flyway
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
             <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="link black dim">
               Spring Rest Openapi
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="link black dim">
-              Spring Dockerize
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/spring-first-step/" class="link black dim">
-              Spring First Step
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="https://njoysubho.github.io/posts/fastapi-ml/" class="link black dim">
-              Deploy model with FastAPI and Heroku
             </a>
           </h2>
         

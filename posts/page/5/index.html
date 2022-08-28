@@ -136,105 +136,12 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="link black dim">
-        Spring Boot Actuator Health Endpoint
+      <a href="https://njoysubho.github.io/posts/modern-development/" class="link black dim">
+        Start Journey for a modern application development
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
-        Resilience4j, the path beyond Hystrix
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Introduction
-In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&rsquo;s the migration path ahead, what is the alternative?
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/the-weekend-journal-02/" class="link black dim">
-        The Weekend Journal- Week-06
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Resilience4j
-This work I deep dive into resilience4j which is an alternative to Hystrix. Resilience4j is a lightweight fault tolerance library and a possible alternative to Hystrix. Resilience4j comes with following core modules -
-  resilience4j-circuitbreaker: Circuit breaking
-  resilience4j-ratelimiter
-  resilience4j-bulkhead
-  resilience4j-retry
-  resilience4j-timelimiter
-  resilience4j-cache
-  one can also stacked together combinations of different resiliency patterns. It also comes with spring-boot starter.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/weeklyjournal-01/" class="link black dim">
-        The Weekend Journal 1
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Welcome to The Weekly Journal. Here I will try to compile link,blogposts etc which I read that week. This week I will start with a little look back on 2020.
-2020 like everyone else I remained constantly worrying, but I did manage to read some books and try out few things as follows
-  12 week a year - I can say till now the most influencing blinks that I read.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/consul-feign/" class="link black dim">
-        Spring Under the hood-Inside Feign and client side discovery with consul
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Feign using consul as discovery service is easy to setup thanks to Spring Autoconfigurations, but let&rsquo;s see how this magic is actually done -
-Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
-  HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
-  If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/generic-variance/" class="link black dim">
-        Post
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-        Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
-  But we may need to use this. Jaba use wildcard concept
-  Producrer extends and consumer super
-  PE -&gt; so that we bound the upper limit
-  
+      The technology landscape for developers is changing rapidly. From monolith applications to microservices, from an application deployed on-premise datacenter to cloud platform, also applications deployed on virtualized machines to the containerized environment, the shift is huge. As a developer, it is important to keep up to date with this changing landscape both upgrading oneself as well as looking for a new job. As there are a plethora of technologies and there are always much hype and evangelism around a new technology it is always good to start with a much stable language, framework, and tool.
     </div>
   </div>
 </div>
@@ -249,7 +156,7 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
     </li>
     
     <li class="page-item">
-    <a href="/posts/page/2/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <a href="/posts/page/4/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -284,7 +191,7 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
         
     
     
-    <li class="page-item active"><a class="page-link" href="/posts/page/3/">3</a></li>
+    <li class="page-item"><a class="page-link" href="/posts/page/3/">3</a></li>
     
     
     
@@ -306,11 +213,11 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
         
     
     
-    <li class="page-item"><a class="page-link" href="/posts/page/5/">5</a></li>
+    <li class="page-item active"><a class="page-link" href="/posts/page/5/">5</a></li>
     
     
-    <li class="page-item">
-    <a href="/posts/page/4/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
     <li class="page-item">

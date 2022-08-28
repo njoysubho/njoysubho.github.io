@@ -6,10 +6,41 @@
     <description>Recent content on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 May 2022 10:41:13 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 06 Aug 2022 11:22:42 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring Cloud Feign</title>
+      <link>https://njoysubho.github.io/posts/spring-cloud-feign/</link>
+      <pubDate>Sat, 06 Aug 2022 11:22:42 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-cloud-feign/</guid>
+      <description>Often a service needs to call Http endpoints , Feign comes from the OpenFeign project makes it easier to call http endpoints in a declarative fashion. Spring has openfeign integraton through its Spring Cloud OpenFeign integration.
+How To include feign clients The actual project for feign is OpenFeign https://github.com/OpenFeign/feign . Spring comes with it&amp;rsquo;s own starter . Add below dependency to the project
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-openfeign&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; For an example let&amp;rsquo;s create a service named feign-serviceA which will call feign-serviceB .</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot Metrics</title>
+      <link>https://njoysubho.github.io/posts/spring-boot-metrics/</link>
+      <pubDate>Sun, 22 May 2022 10:12:53 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-boot-metrics/</guid>
+      <description>Introduction Observability is one of the pillars of modern microservices architecture. Application metrics is one dimension of that observbility. When an application runs on production we may want to know various operational metrics like memory,cpu ,threadpool usage etc as well as buisness metrics for example how many request for a particular operations are made. Spring boot with the help of micrometer enables application developers to expose various metrices.
+Setup metrics To add support for metrics , we need to add actuator dependency</description>
+    </item>
+    
+    <item>
+      <title>Aws Cdk</title>
+      <link>https://njoysubho.github.io/posts/aws-cdk/</link>
+      <pubDate>Sun, 15 May 2022 10:48:08 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/aws-cdk/</guid>
+      <description>In this year&amp;rsquo;s AWS Summit Berlin I attended a great talk by Gregor Hohpe and Luis Morales titled Infrastructure as actual code. In it they presented AWS CDK. I thought of giving it a try and this post is about my initial impression about AWS CDK.
+Before we go to what AWS CDK does , let&amp;rsquo;s look at why infrastructure as code is important. In current cloud native application architecture ability to deploy infra in an automated, repeatable and consistent way is a must have.</description>
+    </item>
     
     <item>
       <title>Spring Jpa</title>
@@ -58,6 +89,16 @@ First Step, just works FROMubuntu:18.04ARG MAVEN_VERSION=3.8.5ARG BASE_URL=https
     </item>
     
     <item>
+      <title>Graphql Dgs</title>
+      <link>https://njoysubho.github.io/posts/graphql-dgs/</link>
+      <pubDate>Wed, 16 Mar 2022 21:13:55 +0100</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/graphql-dgs/</guid>
+      <description>In this blog we will see how to use Netflix DGS library with spring boot to create a GraphQL server. Graphql has gained popularity in recent years and with that we have now several libraries that has been built following the specifications. Netlfix DGS library provides a comprehensive set of features to create a GraphQL server.
+Use Case In our use case we have two objects Author and Book. The Graphql schema looks like below-</description>
+    </item>
+    
+    <item>
       <title>Deploy model with FastAPI and Heroku</title>
       <link>https://njoysubho.github.io/posts/fastapi-ml/</link>
       <pubDate>Tue, 15 Mar 2022 20:40:35 +0100</pubDate>
@@ -75,6 +116,16 @@ First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs
       
       <guid>https://njoysubho.github.io/posts/learning/</guid>
       <description>Technology is ever-evolving and as developers, we are in a constant chase to keep ourselves up-to-date. If you are someone like me who often suffers from FOMO ( Fear of missing out), you might have found yourself with a never-ending TODO list of things to learn and yet had a feeling that too little has been achieved. Below are some of the tricks that I have used over time to keep myself focussed and manageable.</description>
+    </item>
+    
+    <item>
+      <title>Spring Buildpack</title>
+      <link>https://njoysubho.github.io/posts/spring-buildpack/</link>
+      <pubDate>Sun, 19 Sep 2021 12:10:48 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spring-buildpack/</guid>
+      <description>Buildpacks are modular tool to create OCI compliant images for your application, without using Dockerfile. Before we see how Spring boot uses buildpack lets look into major components of buildpack and how they contribute in image building.
+ Builder -&amp;gt; This is itself is an image that builds the image for your application. Buildpack -&amp;gt; A buildpack does the actual job of analysing your application code and contributes in image generation.</description>
     </item>
     
     <item>
@@ -134,6 +185,19 @@ This work I deep dive into resilience4j which is an alternative to Hystrix. Resi
 Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we see closely it imports three more LoadBalancerAutoConfigurations
   HttpClientFeignLoadBalancerConfiguration, OkHttpFeignLoadBalancerConfiguration, DefaultFeignLoadBalancerConfiguration
   If classpath has Apache http client then it uses HttpClientFeignLoadBalancerConfiguration , if path has Ok http client then it uses OkHttpFeignLoadBalancerConfiguration otherwise uses it DefaultFeignLoadBalancerConfiguration which in turn uses Apache Http client.</description>
+    </item>
+    
+    <item>
+      <title>Post</title>
+      <link>https://njoysubho.github.io/posts/generic-variance/</link>
+      <pubDate>Sun, 23 Aug 2020 17:55:25 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/generic-variance/</guid>
+      <description>  Generics in Java is invariant by default if Sub extends Super then List= List// will not compile
+  But we may need to use this. Jaba use wildcard concept
+  Producrer extends and consumer super
+  PE -&amp;gt; so that we bound the upper limit
+  </description>
     </item>
     
     <item>

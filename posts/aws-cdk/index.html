@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sabyasachi Bhattacharya  | Aws Cdk</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.68.3" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.1cb140d8ba31d5b2f1114537dd04802a.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Aws Cdk" />
+<meta property="og:description" content="In this year&rsquo;s AWS Summit Berlin I attended a great talk by Gregor Hohpe and Luis Morales titled Infrastructure as actual code. In it they presented AWS CDK. I thought of giving it a try and this post is about my initial impression about AWS CDK.
+Before we go to what AWS CDK does , let&rsquo;s look at why infrastructure as code is important. In current cloud native application architecture ability to deploy infra in an automated, repeatable and consistent way is a must have." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://njoysubho.github.io/posts/aws-cdk/" />
+<meta property="article:published_time" content="2022-05-15T10:48:08+02:00" />
+<meta property="article:modified_time" content="2022-05-15T10:48:08+02:00" />
+<meta itemprop="name" content="Aws Cdk">
+<meta itemprop="description" content="In this year&rsquo;s AWS Summit Berlin I attended a great talk by Gregor Hohpe and Luis Morales titled Infrastructure as actual code. In it they presented AWS CDK. I thought of giving it a try and this post is about my initial impression about AWS CDK.
+Before we go to what AWS CDK does , let&rsquo;s look at why infrastructure as code is important. In current cloud native application architecture ability to deploy infra in an automated, repeatable and consistent way is a must have.">
+<meta itemprop="datePublished" content="2022-05-15T10:48:08&#43;02:00" />
+<meta itemprop="dateModified" content="2022-05-15T10:48:08&#43;02:00" />
+<meta itemprop="wordCount" content="787">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Aws Cdk"/>
+<meta name="twitter:description" content="In this year&rsquo;s AWS Summit Berlin I attended a great talk by Gregor Hohpe and Luis Morales titled Infrastructure as actual code. In it they presented AWS CDK. I thought of giving it a try and this post is about my initial impression about AWS CDK.
+Before we go to what AWS CDK does , let&rsquo;s look at why infrastructure as code is important. In current cloud native application architecture ability to deploy infra in an automated, repeatable and consistent way is a must have."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  
+  
+  <header class="cover bg-top" style="background-image: url('https://njoysubho.github.io/aws-summit-berlin.JPG');">
+    <div class="pb3-m pb6-l bg-black-60">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://njoysubho.github.io" class="f3 fw2 hover-white no-underline white-90 dib">
+      Sabyasachi Bhattacharya
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+<a href="https://twitter.com/sabz2301" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/sabyasachi-bhattacharya-a0283950/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/njoysubho" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv6 ph3 ph4-ns">
+        
+          <h1 class="f2 f1-l fw2 white-90 mb0 lh-title">Aws Cdk</h1>
+          
+        
+      </div>
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://njoysubho.github.io/posts/aws-cdk/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://njoysubho.github.io/posts/aws-cdk/&amp;text=Aws%20Cdk" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://njoysubho.github.io/posts/aws-cdk/&amp;title=Aws%20Cdk" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+      <h1 class="f1 athelas mt3 mb1">Aws Cdk</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2022-05-15T10:48:08&#43;02:00">May 15, 2022</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>In this year&rsquo;s AWS Summit Berlin I attended a great talk by Gregor Hohpe and Luis Morales titled <code>Infrastructure as actual code</code>. In it they presented AWS CDK. I thought of giving it a try and this post is about my initial impression about AWS CDK.</p>
+<p>Before we go to what AWS CDK does , let&rsquo;s look at why infrastructure as code is important. In current cloud native application architecture ability to deploy infra in an automated, repeatable and consistent way is a must have. Many tools provides a way to achieve that for example CloudFormation by AWS, terraform for Hashicorp to name a few.</p>
+<p>However primarily these tools have it&rsquo;s own DSL to achieve that. Cloudformation uses YAML/Json files, while terraform uses HCL (HashiCorp Configuration Language).</p>
+<p>What if developers  can use their favourite programming language that they are using to write their application and in which they have expertise ? Well this is where AWS CDK shines.</p>
+<p>AWS CDK enables us to use known programming language like Typescript, JavaScript, Java, Python, Java, C#/.Net and Go.</p>
+<p>Below is how a simple Lambda function with Api Gateway integration may look like -</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MovieLambdaInfraStack</span> <span style="color:#66d9ef">extends</span> Stack<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MovieLambdaInfraStack</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Construct scope<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> String id<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span>scope<span style="color:#f92672">,</span> id<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MovieLambdaInfraStack</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Construct scope<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> String id<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> StackProps props<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>scope<span style="color:#f92672">,</span> id<span style="color:#f92672">,</span> props<span style="color:#f92672">);</span>
+        <span style="color:#75715e">// Parameters
+</span><span style="color:#75715e"></span>        CfnParameter version <span style="color:#f92672">=</span> CfnParameter<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;lambda-version&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">description</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Version of lambda app jar&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">type</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;String&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+        <span style="color:#75715e">// Bucket storing lambda code
+</span><span style="color:#75715e"></span>        IBucket lambdaCodeBucket <span style="color:#f92672">=</span> createBucket<span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">// Lambda Definition
+</span><span style="color:#75715e"></span>        String lambdaSource <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;movie-lambda-app-&#34;</span> <span style="color:#f92672">+</span> version<span style="color:#f92672">.</span><span style="color:#a6e22e">getValueAsString</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.jar&#34;</span><span style="color:#f92672">;</span>
+        IFunction lambda <span style="color:#f92672">=</span> Function<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;sab-lambda-artifact&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">code</span><span style="color:#f92672">(</span>Code<span style="color:#f92672">.</span><span style="color:#a6e22e">fromBucket</span><span style="color:#f92672">(</span>lambdaCodeBucket<span style="color:#f92672">,</span> lambdaSource<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">runtime</span><span style="color:#f92672">(</span>Runtime<span style="color:#f92672">.</span><span style="color:#a6e22e">JAVA_11</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">functionName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sab-lambda-artifact&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">handler</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.sab.LambdaHandler&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">tracing</span><span style="color:#f92672">(</span>Tracing<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTIVE</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">timeout</span><span style="color:#f92672">(</span>Duration<span style="color:#f92672">.</span><span style="color:#a6e22e">minutes</span><span style="color:#f92672">(</span>5<span style="color:#f92672">))</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">memorySize</span><span style="color:#f92672">(</span>512<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+        <span style="color:#75715e">// Api Gateway
+</span><span style="color:#75715e"></span>
+        LambdaIntegration lambdaIntegration <span style="color:#f92672">=</span> LambdaIntegration<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>lambda<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">proxy</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+        RestApi api <span style="color:#f92672">=</span> RestApi<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;movies&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">defaultIntegration</span><span style="color:#f92672">(</span>lambdaIntegration<span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">apiKeySourceType</span><span style="color:#f92672">(</span>ApiKeySourceType<span style="color:#f92672">.</span><span style="color:#a6e22e">HEADER</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+        Resource movies <span style="color:#f92672">=</span> api<span style="color:#f92672">.</span><span style="color:#a6e22e">getRoot</span><span style="color:#f92672">().</span><span style="color:#a6e22e">addResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;movies&#34;</span><span style="color:#f92672">);</span>
+        movies<span style="color:#f92672">.</span><span style="color:#a6e22e">addMethod</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;POST&#34;</span><span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@NotNull</span>
+    <span style="color:#66d9ef">private</span> IBucket <span style="color:#a6e22e">createBucket</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> Bucket<span style="color:#f92672">.</span><span style="color:#a6e22e">fromBucketName</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;lambda-code-bucket&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;sab-lambda-artifact&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>and a simple main method that will be run by AWS CDK to deploy this stack</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        App app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> App<span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">new</span> MovieLambdaInfraStack<span style="color:#f92672">(</span>app<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;MovieLambdaInfraStack&#34;</span><span style="color:#f92672">,</span> StackProps<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">env</span><span style="color:#f92672">(</span>Environment<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">account</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xxxxxx&#34;</span><span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">region</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;xxxx&#34;</span><span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">())</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">());</span>
+
+        app<span style="color:#f92672">.</span><span style="color:#a6e22e">synth</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>AWS CDK comes with cmd line cli which will deploy this app on AWS. Underneath it generates a cloudformation template.</p>
+<h2 id="aws-cdk-basic-components">AWS CDK Basic Components</h2>
+<p><strong>App</strong> - An <code>App</code> is an component which will be deployed by cdk and will contain one or more than <code>Stacks</code>.</p>
+<p><strong>Stack</strong> - A <code>Stack</code> is what defines our infra. This will contain one or more <code>Constructs</code></p>
+<p><strong>Constructs</strong> - These are real AWS services . We can also create our custom constructs.</p>
+<p>See more components at <a href="https://docs.aws.amazon.com/cdk/v2/guide/core_concepts.html">https://docs.aws.amazon.com/cdk/v2/guide/core_concepts.html</a>.</p>
+<h2 id="things-that-i-like">Things that I like</h2>
+<p>I have used cloudformation, which personally I do not prefer mostly because for real complex infra it can become real tangled up and hard to read.</p>
+<p>In recent times I have used mostly terraform, and I liked it. It supports multiple cloud. We can create our own modules and components in terraform. HCL language is pretty expressive. It has it&rsquo;s own way to define functions, types, loop of variables which sometimes become a little unintuitive.</p>
+<p>my first impression With AWS CDK  is that I see below advantages -</p>
+<ul>
+<li>
+<p>As developer I feel much ease to be able to use my favourite and known programming constructs to infra.</p>
+</li>
+<li>
+<p>We can even write Unit tests using good old Junit . Below is an example</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">itShouldGenerateLambda</span><span style="color:#f92672">(){</span>
+        App app <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> App<span style="color:#f92672">();</span>
+        Stack lambda <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MovieLambdaInfraStack<span style="color:#f92672">(</span>app<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;MovieLambdaInfraStack&#34;</span><span style="color:#f92672">);</span>
+        Template template <span style="color:#f92672">=</span> Template<span style="color:#f92672">.</span><span style="color:#a6e22e">fromStack</span><span style="color:#f92672">(</span>lambda<span style="color:#f92672">);</span>
+        template<span style="color:#f92672">.</span><span style="color:#a6e22e">resourceCountIs</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AWS::Lambda::Function&#34;</span><span style="color:#f92672">,</span>1<span style="color:#f92672">);</span>
+        template<span style="color:#f92672">.</span><span style="color:#a6e22e">hasResourceProperties</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AWS::Lambda::Function&#34;</span><span style="color:#f92672">,</span> Map<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span>
+                <span style="color:#e6db74">&#34;Handler&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;com.sab.LambdaHandler&#34;</span>
+        <span style="color:#f92672">));</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>
+<p>We can make full use of abstraction in case of using object oriented programmings languages.</p>
+</li>
+<li>
+<p>This ability of creating abstraction will help us to impart same domain driven design thinking that we can apply on application code level.</p>
+</li>
+<li>
+<p>More over I see if we use good abstraction lvel while writing our infra code it will serve as a blue print how different components are interacting to each other. In other word, we can discover the infrastructural architecture of an application . We will have both software level architecture and infra level architecture side by side in a single place . I believe this will give us great insight.</p>
+</li>
+<li>
+<p>Developers get a broader picture how infra components are working together to achieve what their application code try to express.</p>
+</li>
+</ul>
+<h2 id="on-the-down-side">On the down side</h2>
+<p>However on the down side -</p>
+<ul>
+<li>
+<p>Strong tie up with cloudformation means this is AWS cloud specific. Though there are libraries like cdk-tf (<a href="https://github.com/hashicorp/terraform-cdk">https://github.com/hashicorp/terraform-cdk</a>) for terraform and cdk8s for Kubernetes is available.</p>
+</li>
+<li>
+<p>Relatively new so I am yet to judge it&rsquo;s efficiency in large production infrastructure.</p>
+</li>
+</ul>
+<p>But overall I liked the CDK approach and I hope it&rsquo;s adoption will bring infra code closer to application code and break the silos in terms of tools and languages between infra and application code.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
+    &copy;  Sabyasachi Bhattacharya 2022 
+  </a>
+    <div>
+
+
+
+
+<a href="https://twitter.com/sabz2301" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+<a href="https://www.linkedin.com/in/sabyasachi-bhattacharya-a0283950/" target="_blank" class="link-transition linkedin link dib z-999 pt3 pt0-l mr1" title="LinkedIn link" rel="noopener" aria-label="follow on LinkedIn——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+<a href="https://github.com/njoysubho" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
