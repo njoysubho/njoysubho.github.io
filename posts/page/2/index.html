@@ -9,7 +9,7 @@
     <meta name="generator" content="Hugo 0.68.3" />
     
     
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+      <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
     
 
     
@@ -34,12 +34,27 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/posts/" />
-<meta property="og:updated_time" content="2022-11-26T22:23:24+01:00" />
+<meta property="og:updated_time" content="2023-07-09T22:11:37+02:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
 <meta name="twitter:description" content="Java|Spring and More"/>
 
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-M4SBK7LW3B', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
   </head>
 
   <body class="ma0 avenir bg-near-white">
@@ -136,6 +151,21 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/spring-rest-openapi/" class="link black dim">
+        Spring Rest Openapi
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Till now we have seen how to generate a new spring boot application and then how to containerize it. However our application till does not have any functionality. Today we will see how to create a REST API with Spring boot. However we will take a schema first approach and we will generate the REST API stub using the schema. This article will show how a OpenAPI specification looks like and how can we generate our REST API stub using the schema.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/spring-dockerize/" class="link black dim">
         Spring Dockerize
       </a>
@@ -205,22 +235,6 @@ First Generating the model We use the data from https://www.kaggle.com/c/dogs-vs
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
-        Resilience4j, the path beyond Hystrix
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Introduction
-In discussions of cloud-native applications or microservices, the theme that takes a center stage is Resiliency. Hystrix from Netflix OSS has been the go-to library for developers to implement resiliency patterns, in many cases, it&rsquo;s integration with other application frameworks like Spring, Micronaut has made the developer life easier. However, Hystrix has been put into maintenance mode and Spring cloud 2020.0.0 (aka Ilford) has stopped its support for Hystrix. This is a huge change, what&rsquo;s the migration path ahead, what is the alternative?
     </div>
   </div>
 </div>
@@ -300,7 +314,7 @@ In discussions of cloud-native applications or microservices, the theme that tak
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
-    &copy;  Sabyasachi Bhattacharya 2022 
+    &copy;  Sabyasachi Bhattacharya 2023 
   </a>
     <div>
 

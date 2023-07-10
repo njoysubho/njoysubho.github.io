@@ -9,7 +9,7 @@
     <meta name="generator" content="Hugo 0.68.3" />
     
     
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+      <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
     
 
     
@@ -43,6 +43,21 @@
 <meta name="twitter:title" content="Traceid Logging with Micronaut"/>
 <meta name="twitter:description" content="Distributed tracing is must have when we create our microservices . Frameworks like Spring Boot,Micronaut comes with the support of creating TraceId,SpanId and propagate to visualization tools like Zipkin,Jaegar . This post shortly describe what we need to add in order to log the TraceId in application or access log . Logging traceId helps us in correlating the logs . For logging I have used Slf4j with logback . In micronaut support for generating TraceId comes quite easily just matter of adding proper dependencies which can be found here https://guides."/>
 
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-M4SBK7LW3B', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
   </head>
 
   <body class="ma0 avenir bg-near-white">
@@ -215,7 +230,7 @@ This will put the traceId in MDC and this can be used in logback.xml as follows
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
-    &copy;  Sabyasachi Bhattacharya 2022 
+    &copy;  Sabyasachi Bhattacharya 2023 
   </a>
     <div>
 

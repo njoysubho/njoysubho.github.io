@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Sabyasachi Bhattacharya  | Start Journey for a modern application development</title>
+    <title>Sabyasachi Bhattacharya  | Key Considerations for AWS Lambda on production</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="generator" content="Hugo 0.68.3" />
     
@@ -25,23 +25,26 @@
 
     
     
-    <meta property="og:title" content="Start Journey for a modern application development" />
-<meta property="og:description" content="The technology landscape for developers is changing rapidly. From monolith applications to microservices, from an application deployed on-premise datacenter to cloud platform, also applications deployed on virtualized machines to the containerized environment, the shift is huge. As a developer, it is important to keep up to date with this changing landscape both upgrading oneself as well as looking for a new job. As there are a plethora of technologies and there are always much hype and evangelism around a new technology it is always good to start with a much stable language, framework, and tool." />
+    <meta property="og:title" content="Key Considerations for AWS Lambda on production" />
+<meta property="og:description" content="AWS Lambda is an indispensable component of modern cloud architectures. Its serverless nature, low infrastructure requirements, and pay-as-you-go pricing have made it a cornerstone of production workloads. However, while the benefits of AWS Lambda are undeniable, it is crucial to be aware of certain considerations to ensure its successful implementation.
+Monolithic or Individual Lambda First choice we often faced with how much code should be there in one lambda. AWS best practice is against having a monolith lambda See here but if we separate out each functionality to separate lambda wouldn&rsquo;t we end up in an explosion of lambdas?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://njoysubho.github.io/posts/modern-development/" />
-<meta property="article:published_time" content="2019-05-01T18:56:02+02:00" />
-<meta property="article:modified_time" content="2019-05-01T18:56:02+02:00" />
-<meta itemprop="name" content="Start Journey for a modern application development">
-<meta itemprop="description" content="The technology landscape for developers is changing rapidly. From monolith applications to microservices, from an application deployed on-premise datacenter to cloud platform, also applications deployed on virtualized machines to the containerized environment, the shift is huge. As a developer, it is important to keep up to date with this changing landscape both upgrading oneself as well as looking for a new job. As there are a plethora of technologies and there are always much hype and evangelism around a new technology it is always good to start with a much stable language, framework, and tool.">
-<meta itemprop="datePublished" content="2019-05-01T18:56:02&#43;02:00" />
-<meta itemprop="dateModified" content="2019-05-01T18:56:02&#43;02:00" />
-<meta itemprop="wordCount" content="1004">
+<meta property="og:url" content="https://njoysubho.github.io/posts/aws-lambda-pitfall/" />
+<meta property="article:published_time" content="2023-07-09T22:11:37+02:00" />
+<meta property="article:modified_time" content="2023-07-09T22:11:37+02:00" />
+<meta itemprop="name" content="Key Considerations for AWS Lambda on production">
+<meta itemprop="description" content="AWS Lambda is an indispensable component of modern cloud architectures. Its serverless nature, low infrastructure requirements, and pay-as-you-go pricing have made it a cornerstone of production workloads. However, while the benefits of AWS Lambda are undeniable, it is crucial to be aware of certain considerations to ensure its successful implementation.
+Monolithic or Individual Lambda First choice we often faced with how much code should be there in one lambda. AWS best practice is against having a monolith lambda See here but if we separate out each functionality to separate lambda wouldn&rsquo;t we end up in an explosion of lambdas?">
+<meta itemprop="datePublished" content="2023-07-09T22:11:37&#43;02:00" />
+<meta itemprop="dateModified" content="2023-07-09T22:11:37&#43;02:00" />
+<meta itemprop="wordCount" content="787">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Start Journey for a modern application development"/>
-<meta name="twitter:description" content="The technology landscape for developers is changing rapidly. From monolith applications to microservices, from an application deployed on-premise datacenter to cloud platform, also applications deployed on virtualized machines to the containerized environment, the shift is huge. As a developer, it is important to keep up to date with this changing landscape both upgrading oneself as well as looking for a new job. As there are a plethora of technologies and there are always much hype and evangelism around a new technology it is always good to start with a much stable language, framework, and tool."/>
+<meta name="twitter:title" content="Key Considerations for AWS Lambda on production"/>
+<meta name="twitter:description" content="AWS Lambda is an indispensable component of modern cloud architectures. Its serverless nature, low infrastructure requirements, and pay-as-you-go pricing have made it a cornerstone of production workloads. However, while the benefits of AWS Lambda are undeniable, it is crucial to be aware of certain considerations to ensure its successful implementation.
+Monolithic or Individual Lambda First choice we often faced with how much code should be there in one lambda. AWS best practice is against having a monolith lambda See here but if we separate out each functionality to separate lambda wouldn&rsquo;t we end up in an explosion of lambdas?"/>
 
       
 <script type="application/javascript">
@@ -156,20 +159,20 @@ if (!doNotTrack) {
   <div id="sharing" class="mt3">
 
     
-    <a href="https://www.facebook.com/sharer.php?u=https://njoysubho.github.io/posts/modern-development/" class="facebook no-underline" aria-label="share on Facebook">
+    <a href="https://www.facebook.com/sharer.php?u=https://njoysubho.github.io/posts/aws-lambda-pitfall/" class="facebook no-underline" aria-label="share on Facebook">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
 
     </a>
 
     
     
-    <a href="https://twitter.com/share?url=https://njoysubho.github.io/posts/modern-development/&amp;text=Start%20Journey%20for%20a%20modern%20application%20development" class="twitter no-underline" aria-label="share on Twitter">
+    <a href="https://twitter.com/share?url=https://njoysubho.github.io/posts/aws-lambda-pitfall/&amp;text=Key%20Considerations%20for%20AWS%20Lambda%20on%20production" class="twitter no-underline" aria-label="share on Twitter">
       <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
 
     </a>
 
     
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://njoysubho.github.io/posts/modern-development/&amp;title=Start%20Journey%20for%20a%20modern%20application%20development" class="linkedin no-underline" aria-label="share on LinkedIn">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://njoysubho.github.io/posts/aws-lambda-pitfall/&amp;title=Key%20Considerations%20for%20AWS%20Lambda%20on%20production" class="linkedin no-underline" aria-label="share on LinkedIn">
       <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
 </svg>
@@ -177,79 +180,52 @@ if (!doNotTrack) {
     </a>
   </div>
 
-      <h1 class="f1 athelas mt3 mb1">Start Journey for a modern application development</h1>
+      <h1 class="f1 athelas mt3 mb1">Key Considerations for AWS Lambda on production</h1>
       
       
-      <time class="f6 mv4 dib tracked" datetime="2019-05-01T18:56:02&#43;02:00">May 1, 2019</time>
+      <time class="f6 mv4 dib tracked" datetime="2023-07-09T22:11:37&#43;02:00">July 9, 2023</time>
 
       
       
     </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>The technology landscape for developers is changing rapidly. From monolith applications to microservices, from an application deployed on-premise
-datacenter to cloud platform, also applications deployed on virtualized machines to the containerized environment, the shift is huge.
-As a developer, it is important to keep up to date with this changing landscape both upgrading oneself as well as  looking for a new job.
-As there are a plethora of technologies and there are always much hype and evangelism around a new technology it is always good to start
-with a much stable language, framework, and tool.Below are some frameworks, platform, tools to start with.This is based on what
-I have used in my day job ,because I have worked mostly in JAVA based frameworks, the article is more skewed towards JVM ecosystem .
-This write up for some one who is new and try to find out what things that one need to learn to get started with new era of
-application development which will be deployed on cloud .</p>
-<p>Languages &amp; Frameworks-</p>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>AWS Lambda is an indispensable component of modern cloud architectures. Its serverless nature, low infrastructure requirements, and pay-as-you-go pricing have made it a cornerstone of production workloads. However, while the benefits of AWS Lambda are undeniable, it is crucial to be aware of certain considerations to ensure its successful implementation.</p>
+<h3 id="monolithic-or-individual-lambda">Monolithic or Individual Lambda</h3>
+<p>First choice we often faced with how much code should be there in one lambda. AWS best practice is against having a monolith lambda <a href="https://docs.aws.amazon.com/lambda/latest/operatorguide/monolith.html">See here</a> but if we separate out each functionality to separate lambda wouldn&rsquo;t we end up in an explosion of lambdas? From pricing perspective it might not be a problem but what about code organization ? do developers jump around in repos for relevant code ? how to handle code duplications ?</p>
+<p>One approach I find out useful for me is to have a single repo for related functions but deploy them as separate lambda. In this way we can keep the common code together and reuse in all the functions.</p>
+<p>Pros -</p>
 <ul>
-<li>JAVA - Though new languages are gaining popularity JAVA is still going strong. Start with JAVA 8  although JDK 12 has released. Understand and use language features like lambda, streams . With the new cadence of JAVA release we will see more features coming to language much faster so it is important to keep an eye on language level features.Java 8 is a good starting point as many frameworks listed below has Java8 as a baseline.</li>
-<li>Spring - Learn about Spring framework mostly Dependency Injection, how to declare Beans and Autowire beans.This serves as a base.</li>
-<li>Spring Boot - Start with learning how to make a simple REST application in Spring Boot. Its auto-configuration and annotations make it easy to build applications . Industry adoption is very high for Spring boot so it also helps with your resume.</li>
-<li>Spring data  - Highly likely the application you will make will have some kind of persistent storage. Spring data is an umbrella project that provides libraries to talk with various data sources both RDBMS and NoSQL.</li>
-<li>Spring Cloud - Spring cloud is an umbrella project which has many libraries that provide many functionalities of today&rsquo;s distributed applications. It provides support for distributed configurations, messaging, fault tolerance, tracing to mention a few.
-With the above technologies, we can cover the base of an application that can then leverage the architecture pattern like microservice and can be run on a cloud platform both in VMs and in a containerized environment.</li>
+<li>From readability perspective it will feel like a single application.</li>
+<li>It will still be deployed as separate functions so we are not introducing monolithic lambda.</li>
+<li>We can keep the common code together hence less duplicity .</li>
 </ul>
-<p>Architecture-</p>
+<p>Cons -</p>
 <ul>
-<li>Microservices - There&rsquo;s increasing adoption of microservices also sometimes much-abused term.
-It is not merely having multiple services talk to each other but a lot more, so it is good to learn and understand the pattern at its philosophy.
-To do so I highly recommend going through the book Sam Newman&rsquo;s &ldquo;Building Microservices&rdquo;</li>
+<li>Complex CI/CD, we need to understand which part of code has changed and act accordingly.</li>
 </ul>
-<p>Tools-</p>
-<ul>
-<li>Git - Learn how to use git. Git is highly adopted in a development environment.Git official documentation is a good point to start.
-Initially, some find it confusing with some usage it will be clear how Git works.</li>
-<li>Github - Github is a provider of git repositories. Use Github upload your projects there , this not only helps you playing with
-Git but also over time will create a portfolio of the projects you have created.
-This can earn you some brownie points in your next job hunt.</li>
-<li>Jenkins - Don&rsquo;t need to go very deep just understand how a build works there how can a job be configured to build artifacts.</li>
-<li>Maven - Maven is a dependency management and build tool, learn to use Maven in your projects.
-There are other tools gaining popularity like Gradle but maven is a good point to start.</li>
-</ul>
-<p>With the above tools try to understand how some code files from your version management system finally get build and deployed</p>
-<p>Packaging -</p>
-<ul>
-<li>Docker - Modern applications are adopting a containerized deployment approach.
-Learn about Docker and how to package an application in docker and run in a local docker environment.
-I recommend docker also to try out new technology, for example, you want to try out some database lets say Postgres
-you can simply run a docker image of Postgres rather than installing a Postgres to your local machine.
-I highly recommend whenever you create an application think about how you package it in docker and run as a docker image,
-to understand not only writing code but also how you will deploy that.</li>
-</ul>
-<p>Platform-</p>
-<ul>
-<li>AWS - It is a leading cloud platform. It provides a vast range of services.Learning EC2, RDS is a good point to start.
-Using these two a simple application with database calls can be deployed and then can learn about its other services from there.
-AWS provides a free tier for 12 months which has enough resources to use from learning purpose.</li>
-</ul>
-<p>Resources to keep up with technology news -</p>
-<p>Below some resources to keep you updated about latest news in technologies -</p>
-<ul>
-<li>Safari books online - it has huge collection of books .Some organizations provide subscription of safari to their employees.
-If your company does not provide one it is not a bad investment to subscribe for one yourself.</li>
-<li>Infoq -  <a href="https://www.infoq.com/">https://www.infoq.com/</a> .</li>
-<li>Dzone -  <a href="https://dzone.com/">https://dzone.com/</a> - Check out section as Guides and Refzcard .</li>
-<li>Java Magazine Oracle - Bimonthly magazine with latest development in Java World</li>
-<li>Twitter - is a good source all projects now a days has their twitter handle and tweet about their latest news.</li>
-<li>LinkedIn</li>
-<li>Podcast - Very recently I have started to listen to podcasts.Java Pub house, Google Kubernetes Podcast are two that I like  .</li>
-</ul>
-<p>It is not possible to use every new technolgy in your day job , you have a business value to deliver there ,
-so it is important to set aside some dedicated time for your own tinkering with technology at home and pitch for same if any opportunity you found to use it in your workplace.</p>
-<p>Hope this write up will help to get started .Happy coding !!!</p>
+<h3 id="more-fragmented-infra">More fragmented infra</h3>
+<p>Continuing from above, if we break down a service into individual lambdas we need to essentially take care of automated deployment for each lambda.
+Decision that we need to take here is whether we have one infra code or separate infra code for each lambda. It will be benefecial to separate out the infra code for each lambda so that we are not unecessary building or updating all lambdas.</p>
+<p>One problem often arises here is about which lambda owns a particular infra . We can use a tagging to assign the ownership.</p>
+<p>But overall we are now managing from one services to multiple functions so it is a challenge nonetheless.</p>
+<h3 id="cognitive-load">Cognitive load</h3>
+<p>Because it is so easy to integrate lambdas with other service we often feel lile adding lego like block and before we realise we end up with numbers of different component that working with each other.</p>
+<p>As developer what we need here is an overall visibility what event generated by which service consumed by which lambda which in turn trigger other service it soon become a cognitive load.</p>
+<p>Create an overall architecture diagram updated and handy we will often need that.
+I would personally love to have a tool that can visualize the whole topology.</p>
+<h3 id="testing">Testing</h3>
+<p>AWS Lambda is an AWS offering and it often integrated with other service so a question arise how to test that. There is a whole section in AWS doc about <a href="https://docs.aws.amazon.com/lambda/latest/dg/testing-guide.html">testing</a>. However one thing that I differ slightly from here is usage of simulator. I personally like usage simulators like localStack. This gives me the mych higher confidence than mocking out relevant parts. The doc talks about testing by actually deploying on AWS , which is absolutely fine but if devs can test locally that will be much faster. Localstack alongside testcontainers can speed up the process.</p>
+<h3 id="tracing">Tracing</h3>
+<p>Most of the times Lambdas are part of an overall architectue and not in a standalone way. Which means we need tracing, logging, metrics to work seamlessly when service to lambda interactions are happening.</p>
+<p>for tracing While X-Ray is a great tool often orgs do have an existing tracing mechanism or cost of X-Ray becomes an issue.
+We need to come up with an unified tracing solution. One option is to depend on standard library like opentelemetery to programatically propagates tracing info.
+Another option is to run the same logic but using AWS lambda Extension API.
+In the second, we can make the tracing part language agnostic and run as a separate process than lambda.</p>
+<h3 id="beware-about-quota">Beware about quota</h3>
+<p>AWS Lambda by default has a quota of maximum 1000 concurrent executions in an account.
+Initially this might not be an issue. But as the environment grows we will start to see throttles.
+Beware of any scenario that can cause unbounded execution of lambda that might eat up quota from other lambdas.
+If the event producer produces large number of events considering having an upper bound of how many concurrent lambdas can be spawned at max. One example configuration for SQS mapping can be found <a href="https://aws.amazon.com/blogs/compute/introducing-maximum-concurrency-of-aws-lambda-functions-when-using-amazon-sqs-as-an-event-source/">here</a></p>
+<p>In conclusion, AWS Lambda is a powerful and valuable tool for building scalable and cost-effective cloud architectures. However, its adoption requires careful consideration of various factors. With thoughtful planning and the adoption of best practices, AWS Lambda can significantly enhance scalability, reduce TCO, and drive successful deployments in production environments.</p>
 <ul class="pa0">
   
 </ul>

@@ -6,10 +6,20 @@
     <description>Recent content on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Nov 2022 22:23:24 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jul 2023 22:11:37 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Key Considerations for AWS Lambda on production</title>
+      <link>https://njoysubho.github.io/posts/aws-lambda-pitfall/</link>
+      <pubDate>Sun, 09 Jul 2023 22:11:37 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/aws-lambda-pitfall/</guid>
+      <description>AWS Lambda is an indispensable component of modern cloud architectures. Its serverless nature, low infrastructure requirements, and pay-as-you-go pricing have made it a cornerstone of production workloads. However, while the benefits of AWS Lambda are undeniable, it is crucial to be aware of certain considerations to ensure its successful implementation.
+Monolithic or Individual Lambda First choice we often faced with how much code should be there in one lambda. AWS best practice is against having a monolith lambda See here but if we separate out each functionality to separate lambda wouldn&amp;rsquo;t we end up in an explosion of lambdas?</description>
+    </item>
     
     <item>
       <title>Aws Lambda Custom Runtime</title>
