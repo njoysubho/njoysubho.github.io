@@ -6,10 +6,20 @@
     <description>Recent content on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Jul 2023 22:11:37 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 18 May 2025 19:22:15 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Rise of the Agentic Web</title>
+      <link>https://njoysubho.github.io/posts/google-a2a/</link>
+      <pubDate>Sun, 18 May 2025 19:22:15 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/google-a2a/</guid>
+      <description>The Rise of the Agentic Web: From GenAI Applications to Inter-Agent Protocols The advent of Generative AI (GenAI) marked a significant shift in application development. Initially, we focused on building applications powered by large language models, enabling tasks like content generation, summarization, and code assistance. These applications were primarily monolithic, relying on single models to perform complex tasks.
+As the field matured, we recognized the limitations of this approach. Complex tasks often require a combination of skills and knowledge domains, which a single model might not efficiently handle.</description>
+    </item>
     
     <item>
       <title>Key Considerations for AWS Lambda on production</title>

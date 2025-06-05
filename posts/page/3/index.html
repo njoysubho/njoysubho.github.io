@@ -34,7 +34,7 @@
 <meta property="og:description" content="Java|Spring and More" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://njoysubho.github.io/posts/" />
-<meta property="og:updated_time" content="2023-07-09T22:11:37+02:00" />
+<meta property="og:updated_time" content="2025-05-18T19:22:15+02:00" />
 <meta itemprop="name" content="Posts">
 <meta itemprop="description" content="Java|Spring and More"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Posts"/>
@@ -151,6 +151,21 @@ if (!doNotTrack) {
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="https://njoysubho.github.io/posts/spring-health-endpoint/" class="link black dim">
+        Spring Boot Actuator Health Endpoint
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Health endpoint for a service exposes status of it&rsquo;s state. This state information is useful to determine whether the application is up and ready to accept requests. Normally when a service is fronted by a Load Balancer, the loadbalancer uses the information derived from the health endpoint to decide whether to route traffic to that instance of service or not. Spring Boot actuator provides Health Endpoint out of the box. If we add spring-boot-actuator dependency we can get the URI /actuator/health.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="https://njoysubho.github.io/posts/resilience4j/" class="link black dim">
         Resilience4j, the path beyond Hystrix
       </a>
@@ -236,21 +251,6 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
 </div>
 </div>
       
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="https://njoysubho.github.io/posts/spring-boot-liveness/" class="link black dim">
-        Spring Boot Liveness
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Spring Boot Actuator Health endpoint since 2.3.0 comes with two health groups Liveness and Readiness. Actuator Health points are being used to reflect the status of the application. Spring Boot also provides a way to add multiple health indicators together and form a group. As a continuation to this concept Spring Boot provides two HealthIndicator LivenessStateIndicator and ReadinessStateIndicator. These two indicators are added to liveness and readiness group respectively by AvailabilityProbesHealthEndpointGroups.
-    </div>
-  </div>
-</div>
-</div>
-      
     </section>
 
 <ul class="pagination">
@@ -325,7 +325,7 @@ Spring cloud open feign comes with FeignLoadBalancerAutoConfiguration . If we se
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://njoysubho.github.io" >
-    &copy;  Sabyasachi Bhattacharya 2023 
+    &copy;  Sabyasachi Bhattacharya 2025 
   </a>
     <div>
 
