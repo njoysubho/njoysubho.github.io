@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Sabyasachi Bhattacharya</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 May 2025 19:22:15 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 09 Jun 2025 11:42:14 +0200</lastBuildDate>
     
 	<atom:link href="https://njoysubho.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring the AWS Serverless MCP Server</title>
+      <link>https://njoysubho.github.io/posts/aws-serverless-mcp/</link>
+      <pubDate>Mon, 09 Jun 2025 11:42:14 +0200</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/aws-serverless-mcp/</guid>
+      <description>AWS has recently introduced the MCP server for AWS Serverless. You can read the official announcement here.
+I’ve been testing it using the latest MCP server with continue.dev plugin and Claude Sonnet 4 as the LLM backend. While the MCP server bundles a variety of tools, I want to focus on the three that stood out the most in my usage.
+🔍 1. get_lambda_guidance-This tool helps determine if a given use case is suitable for AWS Lambda.</description>
+    </item>
     
     <item>
       <title>The Rise of the Agentic Web</title>
