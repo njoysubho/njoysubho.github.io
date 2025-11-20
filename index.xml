@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Spec Driven Development: Getting Better Code from AI Assistants</title>
+      <link>https://njoysubho.github.io/posts/spec-driven-development/</link>
+      <pubDate>Sun, 16 Nov 2025 20:20:07 +0100</pubDate>
+      
+      <guid>https://njoysubho.github.io/posts/spec-driven-development/</guid>
+      <description>LLMs like Claude, Cursor, and GitHub Copilot are getting better at solving coding problems. But anyone who has ever written a business feature knows that the real challenge is not just writing the code. The code should follow your existing coding patterns, respect organization specific linting rules, use the right libraries, and fit into your architecture. So no matter how tempting it is for a developer to just copy paste the title and maybe description from the ticket in your favourite ticket management system its highly likely not going to produce code which is closer to the final version.</description>
+    </item>
+    
+    <item>
       <title>Exploring the AWS Serverless MCP Server</title>
       <link>https://njoysubho.github.io/posts/aws-serverless-mcp/</link>
       <pubDate>Mon, 09 Jun 2025 11:42:14 +0200</pubDate>

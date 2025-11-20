@@ -10,14 +10,21 @@
   </url>
   
   <url>
-    <loc>https://njoysubho.github.io/posts/aws-serverless-mcp/</loc>
-    <lastmod>2025-06-09T11:42:14+02:00</lastmod>
+    <loc>https://njoysubho.github.io/posts/</loc>
+    <lastmod>2025-11-16T20:20:07+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://njoysubho.github.io/posts/</loc>
+    <loc>https://njoysubho.github.io/posts/spec-driven-development/</loc>
+    <lastmod>2025-11-16T20:20:07+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://njoysubho.github.io/posts/aws-serverless-mcp/</loc>
     <lastmod>2025-06-09T11:42:14+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
